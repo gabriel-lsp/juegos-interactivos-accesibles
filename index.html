@@ -28,10 +28,6 @@
       --gris-100:#f0f4f8;
       --amarillo-100:#fff4d6;
       --amarillo-700:#8a5a00;
-      --naranja:#c05621;
-      --marron:#8a6a2f;
-      --morado:#6d5b8c;
-      --turquesa:#26727a;
       --sombra:0 18px 42px rgba(16,42,67,.16);
     }
 
@@ -328,42 +324,28 @@
       color:var(--verde-700);
     }
 
-    .tarjetas{
+    .grid-materiales{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:18px;
       margin-top:28px;
     }
 
-    .tarjeta{
+    .tarjeta-material{
       background:#ffffff;
       border:1px solid #d9e2ec;
       border-radius:24px;
       padding:22px;
-      min-height:285px;
+      min-height:250px;
       display:flex;
       flex-direction:column;
       justify-content:space-between;
-      text-decoration:none;
-      color:var(--gris-900);
       box-shadow:0 10px 22px rgba(16,42,67,.06);
-      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
 
-    .tarjeta:hover{
-      transform:translateY(-4px);
-      box-shadow:0 16px 34px rgba(16,42,67,.13);
+    .tarjeta-material.disponible{
+      background:linear-gradient(180deg,#ffffff 0%,#eef9f6 100%);
       border-color:rgba(15,118,110,.35);
-    }
-
-    .tarjeta[aria-disabled="true"]{
-      cursor:default;
-    }
-
-    .tarjeta[aria-disabled="true"]:hover{
-      transform:none;
-      box-shadow:0 10px 22px rgba(16,42,67,.06);
-      border-color:#d9e2ec;
     }
 
     .material-icono{
@@ -380,58 +362,16 @@
       margin-bottom:16px;
     }
 
-    .tarjeta.lsp .material-icono{
-      background:#e6f4f1;
-      color:var(--verde-700);
-    }
-
-    .tarjeta.braille .material-icono{
-      background:#eaf4ff;
-      color:#174a7c;
-    }
-
-    .tarjeta.memoria .material-icono{
-      background:#fff4d6;
-      color:var(--naranja);
-    }
-
-    .tarjeta.pareja .material-icono{
-      background:#f6edda;
-      color:var(--marron);
-    }
-
-    .tarjeta.convertidor .material-icono{
-      background:#f0ebf8;
-      color:var(--morado);
-    }
-
-    .tarjeta.mixto .material-icono{
-      background:#e7f7f8;
-      color:var(--turquesa);
-    }
-
-    .estado{
-      display:inline-block;
-      width:max-content;
-      margin:0 0 12px;
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:.82rem;
-      font-weight:900;
-      background:var(--amarillo-100);
-      color:var(--amarillo-700);
-    }
-
-    .tarjeta h3{
+    .tarjeta-material h3{
       margin:0 0 10px;
       color:#0b2f4a;
       font-size:1.15rem;
       line-height:1.25;
     }
 
-    .tarjeta p{
+    .tarjeta-material p{
       margin:0;
-      color:var(--gris-600);
+      color:#486581;
       line-height:1.58;
       font-size:.96rem;
     }
@@ -445,39 +385,38 @@
       flex-wrap:wrap;
     }
 
-    .enlace-juego{
+    .estado-material{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:800;
+    }
+
+    .estado-material.disponible{
+      background:#d9f2ec;
+      color:#0f766e;
+    }
+
+    .estado-material.construccion{
+      background:#fff4d6;
+      color:#8a5a00;
+    }
+
+    .enlace-material{
       display:inline-block;
       text-decoration:none;
       background:#0f766e;
       color:#ffffff;
       padding:9px 16px;
       border-radius:999px;
-      font-weight:900;
+      font-weight:800;
       font-size:.9rem;
     }
 
-    .tarjeta.braille .enlace-juego{
-      background:#174a7c;
-    }
-
-    .tarjeta.memoria .enlace-juego{
-      background:var(--naranja);
-    }
-
-    .tarjeta.pareja .enlace-juego{
-      background:var(--marron);
-    }
-
-    .tarjeta.convertidor .enlace-juego{
-      background:var(--morado);
-    }
-
-    .tarjeta.mixto .enlace-juego{
-      background:var(--turquesa);
-    }
-
-    .enlace-juego:hover{
-      opacity:.92;
+    .enlace-material:hover{
+      background:#0b4f4a;
+      color:#ffffff;
     }
 
     .nota{
@@ -542,7 +481,7 @@
         grid-template-columns:1fr;
       }
 
-      .tarjetas{
+      .grid-materiales{
         grid-template-columns:repeat(2,1fr);
       }
 
@@ -596,7 +535,7 @@
         display:block;
       }
 
-      .tarjetas{
+      .grid-materiales{
         grid-template-columns:1fr;
       }
 
@@ -605,7 +544,7 @@
         align-items:flex-start;
       }
 
-      .enlace-juego{
+      .enlace-material{
         width:100%;
         text-align:center;
       }
@@ -705,8 +644,9 @@
         </div>
       </section>
 
-      <section class="tarjetas" aria-label="Listado de juegos interactivos">
-        <a class="tarjeta lsp" href="juegos/adivina-sena.html">
+      <section class="grid-materiales" aria-label="Listado de juegos interactivos">
+
+        <article class="tarjeta-material disponible">
           <div>
             <div class="material-icono" aria-hidden="true">01</div>
             <h3>Adivina la seña</h3>
@@ -718,11 +658,12 @@
           </div>
 
           <div class="tarjeta-pie">
-            <span class="enlace-juego">Jugar</span>
+            <span class="estado-material disponible">Disponible</span>
+            <a class="enlace-material" href="juegos/adivina-sena.html">Jugar</a>
           </div>
-        </a>
+        </article>
 
-        <a class="tarjeta braille" href="juegos/adivina-braille.html">
+        <article class="tarjeta-material disponible">
           <div>
             <div class="material-icono" aria-hidden="true">02</div>
             <h3>Adivina el signo Braille</h3>
@@ -734,14 +675,14 @@
           </div>
 
           <div class="tarjeta-pie">
-            <span class="enlace-juego">Jugar</span>
+            <span class="estado-material disponible">Disponible</span>
+            <a class="enlace-material" href="juegos/adivina-braille.html">Jugar</a>
           </div>
-        </a>
+        </article>
 
-        <a class="tarjeta memoria" href="#" onclick="return false;" aria-disabled="true">
+        <article class="tarjeta-material">
           <div>
             <div class="material-icono" aria-hidden="true">03</div>
-            <span class="estado">Próximamente</span>
             <h3>Memoria visual</h3>
             <p>
               Juego de cartas para encontrar parejas entre palabras, señas,
@@ -750,14 +691,13 @@
           </div>
 
           <div class="tarjeta-pie">
-            <span class="enlace-juego">En construcción</span>
+            <span class="estado-material construccion">En construcción</span>
           </div>
-        </a>
+        </article>
 
-        <a class="tarjeta pareja" href="#" onclick="return false;" aria-disabled="true">
+        <article class="tarjeta-material">
           <div>
             <div class="material-icono" aria-hidden="true">04</div>
-            <span class="estado">Próximamente</span>
             <h3>Encuentra la pareja</h3>
             <p>
               Actividad para asociar palabra escrita con seña, signo Braille o
@@ -766,14 +706,13 @@
           </div>
 
           <div class="tarjeta-pie">
-            <span class="enlace-juego">En construcción</span>
+            <span class="estado-material construccion">En construcción</span>
           </div>
-        </a>
+        </article>
 
-        <a class="tarjeta convertidor" href="#" onclick="return false;" aria-disabled="true">
+        <article class="tarjeta-material">
           <div>
             <div class="material-icono" aria-hidden="true">05</div>
-            <span class="estado">Próximamente</span>
             <h3>Escribe y convierte a Braille</h3>
             <p>
               Recurso interactivo para escribir palabras, visualizar su
@@ -782,14 +721,13 @@
           </div>
 
           <div class="tarjeta-pie">
-            <span class="enlace-juego">En construcción</span>
+            <span class="estado-material construccion">En construcción</span>
           </div>
-        </a>
+        </article>
 
-        <a class="tarjeta mixto" href="#" onclick="return false;" aria-disabled="true">
+        <article class="tarjeta-material">
           <div>
             <div class="material-icono" aria-hidden="true">06</div>
-            <span class="estado">Próximamente</span>
             <h3>Reto mixto LSP y Braille</h3>
             <p>
               Actividad combinada para practicar reconocimiento de señas,
@@ -798,9 +736,10 @@
           </div>
 
           <div class="tarjeta-pie">
-            <span class="enlace-juego">En construcción</span>
+            <span class="estado-material construccion">En construcción</span>
           </div>
-        </a>
+        </article>
+
       </section>
     </section>
 
