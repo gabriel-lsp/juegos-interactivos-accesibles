@@ -5,21 +5,279 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta
     name="description"
-    content="Contacto de Materiales Educativos Accesibles del CREBE Señor de los Milagros - Ucayali."
+    content="Contacto de Juegos Interactivos Accesibles del CREBE Señor de los Milagros - Ucayali."
   >
-  <title>Contacto | Materiales Educativos Accesibles</title>
-  <link rel="stylesheet" href="estilos.css?v=8">
+  <title>Contacto | Juegos Interactivos Accesibles</title>
 
   <style>
-    .panel-busqueda .panel-encabezado{
-      display:block;
+    :root{
+      --azul-900:#082f49;
+      --azul-800:#0b3f5c;
+      --azul-700:#114e60;
+      --verde-900:#064e3b;
+      --verde-800:#0b4f4a;
+      --verde-700:#0f766e;
+      --verde-100:#e6f4f1;
+      --verde-50:#f0fdfa;
+      --blanco:#ffffff;
+      --gris-900:#102a43;
+      --gris-700:#334e68;
+      --gris-600:#486581;
+      --gris-500:#627d98;
+      --gris-300:#d9e2ec;
+      --gris-100:#f0f4f8;
+      --sombra:0 18px 42px rgba(16,42,67,.16);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#f0f4f8 0%,#ffffff 52%,#f7fafc 100%);
+      color:var(--gris-900);
+    }
+
+    a{
+      color:inherit;
+    }
+
+    .salto-contenido{
+      position:absolute;
+      left:-999px;
+      top:12px;
+      background:var(--gris-900);
+      color:var(--blanco);
+      padding:10px 14px;
+      border-radius:10px;
+      z-index:50;
+    }
+
+    .salto-contenido:focus{
+      left:12px;
+    }
+
+    .cabecera{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 84% 70%,rgba(255,255,255,.11) 0 22%,transparent 23%),
+        radial-gradient(circle at 86% 74%,rgba(255,255,255,.08) 0 36%,transparent 37%),
+        linear-gradient(135deg,#0b3550 0%,#0f4f57 48%,#0f766e 100%);
+      color:var(--blanco);
+      padding:30px 18px 145px;
+    }
+
+    .navegacion{
+      max-width:1120px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .marca{
+      display:inline-flex;
+      align-items:center;
+      gap:14px;
+      color:var(--blanco);
+      text-decoration:none;
+      font-weight:900;
+      font-size:1.05rem;
+    }
+
+    .marca-icono{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--blanco);
+      color:#0b3550;
+      font-weight:900;
+      font-size:.9rem;
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
+    }
+
+    .enlace-cabecera{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:10px 22px;
+      border:1px solid rgba(255,255,255,.45);
+      border-radius:999px;
+      color:var(--blanco);
+      text-decoration:none;
+      font-weight:800;
+      background:rgba(255,255,255,.08);
+    }
+
+    .enlace-cabecera:hover{
+      background:rgba(255,255,255,.16);
+    }
+
+    .portada{
+      max-width:1120px;
+      margin:70px auto 0;
+    }
+
+    .bloque-institucional{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      margin-bottom:34px;
+    }
+
+    .logo-crebe{
+      width:92px;
+      height:92px;
+      object-fit:contain;
+    }
+
+    .logo-fallback{
+      width:92px;
+      height:92px;
+      border-radius:50%;
+      background:#ffffff;
+      color:#0b3550;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:.9rem;
+      letter-spacing:.04em;
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
+    }
+
+    .texto-institucional{
+      border-left:2px solid rgba(255,255,255,.35);
+      padding-left:22px;
+    }
+
+    .nombre-institucional{
+      margin:0 0 8px;
+      color:var(--blanco);
+      font-size:1.2rem;
+      font-weight:900;
+      line-height:1.25;
+    }
+
+    .detalle-institucional{
+      margin:0;
+      color:rgba(255,255,255,.94);
+      font-size:1rem;
+      font-weight:700;
+      line-height:1.4;
+    }
+
+    .etiqueta{
+      margin:0 0 14px;
+      color:#c9f7ee;
+      font-size:.86rem;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .portada h1{
+      max-width:860px;
+      margin:0 0 22px;
+      color:var(--blanco);
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(2.5rem,5.8vw,4.15rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
+    }
+
+    .subtitulo{
+      max-width:880px;
+      margin:0;
+      color:rgba(255,255,255,.96);
+      font-size:1.22rem;
+      line-height:1.65;
+    }
+
+    .franja-info{
+      margin-top:24px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:9px 15px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.28);
+      color:#ffffff;
+      font-size:.92rem;
+      font-weight:800;
+    }
+
+    main{
+      max-width:1120px;
+      margin:-78px auto 0;
+      padding:0 18px 44px;
+      position:relative;
+      z-index:2;
+    }
+
+    .panel-principal,
+    .aviso-pedagogico,
+    .nota{
+      background:var(--blanco);
+      border:1px solid var(--gris-300);
+      border-radius:26px;
+      box-shadow:var(--sombra);
+    }
+
+    .panel-principal{
+      padding:34px 46px 40px;
+    }
+
+    .panel-encabezado{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:24px;
       margin-bottom:30px;
     }
 
-    .texto-panel-materiales{
-      max-width:760px;
+    .sobretitulo{
+      margin:0 0 12px;
+      color:var(--verde-700);
+      font-size:.86rem;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .panel-encabezado h2,
+    .aviso-pedagogico h2,
+    .nota h2{
+      margin:0;
+      color:#072f57;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(1.9rem,3.6vw,2.65rem);
+      line-height:1.1;
+    }
+
+    .texto-panel{
+      max-width:860px;
       margin:14px 0 0;
-      color:#486581;
+      color:var(--gris-600);
       line-height:1.65;
       font-size:1rem;
     }
@@ -28,11 +286,40 @@
       display:flex;
       flex-wrap:wrap;
       gap:12px;
-      margin-top:28px;
+      margin-top:26px;
     }
 
-    .acciones-contacto .boton-primario{
+    .boton-primario,
+    .boton-secundario{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:10px 18px;
+      border-radius:999px;
       text-decoration:none;
+      font-weight:800;
+      font-size:.94rem;
+    }
+
+    .boton-primario{
+      background:#0f766e;
+      color:#ffffff;
+    }
+
+    .boton-primario:hover{
+      background:#0b4f4a;
+      color:#ffffff;
+    }
+
+    .boton-secundario{
+      background:#ffffff;
+      color:#0f766e;
+      border:1px solid rgba(15,118,110,.38);
+    }
+
+    .boton-secundario:hover{
+      background:#eef9f6;
     }
 
     .grid-contacto{
@@ -88,29 +375,165 @@
       color:#0f766e;
       font-weight:800;
       text-decoration:none;
+      overflow-wrap:anywhere;
     }
 
     .tarjeta-contacto a:hover{
       text-decoration:underline;
     }
 
+    .aviso-pedagogico,
+    .nota{
+      margin-top:24px;
+      padding:24px 26px;
+      box-shadow:0 10px 22px rgba(16,42,67,.06);
+    }
+
+    .aviso-pedagogico{
+      background:linear-gradient(180deg,#ffffff 0%,#eef9f6 100%);
+      border-color:rgba(15,118,110,.35);
+    }
+
+    .aviso-pedagogico h2,
+    .nota h2{
+      font-size:1.55rem;
+      margin-bottom:12px;
+    }
+
+    .aviso-pedagogico h2{
+      color:var(--verde-700);
+    }
+
+    .aviso-pedagogico p,
+    .nota p{
+      margin:0;
+      color:var(--gris-600);
+      line-height:1.7;
+      font-size:1rem;
+    }
+
+    footer{
+      background:#082f49;
+      color:#ffffff;
+      padding:36px 18px 26px;
+    }
+
+    .footer-contenido{
+      max-width:1120px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+    }
+
+    .footer-bloque h2{
+      margin:0 0 10px;
+      font-size:1rem;
+      color:#ffffff;
+    }
+
+    .footer-bloque p{
+      margin:0;
+      color:rgba(255,255,255,.84);
+      line-height:1.6;
+      font-size:.92rem;
+    }
+
+    .footer-bloque a{
+      color:rgba(255,255,255,.9);
+      text-decoration:none;
+    }
+
+    .footer-bloque a:hover{
+      text-decoration:underline;
+    }
+
+    .footer-final{
+      max-width:1120px;
+      margin:28px auto 0;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.18);
+      color:rgba(255,255,255,.78);
+      font-size:.9rem;
+      line-height:1.6;
+      text-align:center;
+    }
+
+    .footer-final p{
+      margin:0;
+    }
+
     @media (max-width:900px){
       .grid-contacto{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .footer-contenido{
         grid-template-columns:repeat(2,1fr);
       }
     }
 
     @media (max-width:700px){
-      .grid-contacto{
-        grid-template-columns:1fr;
+      .cabecera{
+        padding:24px 18px 120px;
+      }
+
+      .navegacion{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .portada{
+        margin-top:48px;
+      }
+
+      .bloque-institucional{
+        align-items:flex-start;
+        gap:16px;
+      }
+
+      .logo-crebe,
+      .logo-fallback{
+        width:78px;
+        height:78px;
+      }
+
+      .texto-institucional{
+        padding-left:16px;
+      }
+
+      .nombre-institucional{
+        font-size:1.05rem;
+      }
+
+      .detalle-institucional{
+        font-size:.92rem;
+      }
+
+      .panel-principal{
+        padding:26px 18px 32px;
+      }
+
+      .panel-encabezado{
+        display:block;
       }
 
       .acciones-contacto{
         flex-direction:column;
       }
 
-      .acciones-contacto .boton-primario{
+      .boton-primario,
+      .boton-secundario{
         width:100%;
+        text-align:center;
+      }
+
+      .grid-contacto{
+        grid-template-columns:1fr;
+      }
+
+      .footer-contenido{
+        grid-template-columns:1fr;
       }
     }
   </style>
@@ -123,9 +546,9 @@
 
   <header class="cabecera">
     <nav class="navegacion" aria-label="Navegación principal">
-      <a class="marca" href="index.html" aria-label="Volver a Materiales Educativos Accesibles">
-        <span class="marca-icono" aria-hidden="true">MEA</span>
-        <span>Materiales Educativos Accesibles</span>
+      <a class="marca" href="index.html" aria-label="Volver a Juegos Interactivos Accesibles">
+        <span class="marca-icono" aria-hidden="true">JIA</span>
+        <span>Juegos Interactivos Accesibles</span>
       </a>
 
       <a class="enlace-cabecera" href="index.html">
@@ -137,9 +560,12 @@
       <div class="bloque-institucional" aria-label="Identidad institucional">
         <img
           class="logo-crebe"
-          src="logo-crebe.png"
+          src="https://gabriel-lsp.github.io/banco-digital-braille/logo-crebe.png"
           alt="Logo del CREBE Señor de los Milagros - Ucayali"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
         >
+        <div class="logo-fallback" aria-hidden="true">CREBE</div>
+
         <div class="texto-institucional">
           <p class="nombre-institucional">
             CREBE "Señor de los Milagros" - Ucayali
@@ -151,27 +577,29 @@
       </div>
 
       <p class="etiqueta">Comunicación institucional</p>
-      <h1>
-        <a href="index.html" style="color:inherit;text-decoration:none;">
-          Contacto
-        </a>
-      </h1>
+      <h1>Contacto</h1>
       <p class="subtitulo">
-        Canal de comunicación de Materiales Educativos Accesibles
+        Canal de comunicación de Juegos Interactivos Accesibles para consultas,
+        sugerencias u observaciones sobre los recursos publicados.
       </p>
+
+      <div class="franja-info">
+        <span class="chip">CREBE Ucayali</span>
+        <span class="chip">Accesibilidad educativa</span>
+        <span class="chip">Soporte del recurso</span>
+      </div>
     </div>
   </header>
 
   <main id="contenido-principal">
-
-    <section class="panel-busqueda" aria-labelledby="titulo-contacto">
+    <section class="panel-principal" aria-labelledby="titulo-contacto">
       <div class="panel-encabezado">
         <div>
           <p class="sobretitulo">Contacto</p>
           <h2 id="titulo-contacto">Comunicación sobre el recurso</h2>
-          <p class="texto-panel-materiales">
+          <p class="texto-panel">
             Esta sección permite canalizar consultas, sugerencias u observaciones
-            relacionadas con Materiales Educativos Accesibles, repositorio digital
+            relacionadas con Juegos Interactivos Accesibles, espacio digital
             orientado al apoyo pedagógico, la accesibilidad y la atención a la
             diversidad.
           </p>
@@ -180,17 +608,20 @@
 
       <div class="acciones-contacto">
         <a class="boton-primario" href="index.html">
-          Volver a Materiales Educativos Accesibles
+          Volver a Juegos Interactivos Accesibles
+        </a>
+        <a class="boton-secundario" href="https://crebeucayali.weebly.com/">
+          Volver a la plataforma CREBE
         </a>
       </div>
 
       <div class="grid-contacto">
         <article class="tarjeta-contacto destacada">
-          <div class="contacto-icono" aria-hidden="true">MEA</div>
+          <div class="contacto-icono" aria-hidden="true">JIA</div>
           <h3>Responsable del recurso</h3>
           <p>
             Gabriel Berrospi<br>
-            Desarrollo y organización de Materiales Educativos Accesibles.
+            Desarrollo y organización de Juegos Interactivos Accesibles.
           </p>
         </article>
 
@@ -248,33 +679,24 @@
       </div>
     </section>
 
-    <section
-      id="aviso-pedagogico"
-      class="seccion-aviso"
-      aria-labelledby="titulo-aviso"
-    >
-      <aside class="aviso-pedagogico">
-        <div class="aviso-icono" aria-hidden="true">i</div>
-        <div>
-          <h2 id="titulo-aviso">Observaciones sobre el recurso</h2>
-          <p>
-            Si encuentras algún error, contenido desactualizado o tienes una
-            sugerencia de mejora, comunícate mediante los correos indicados.
-            Incluye el nombre del material observado y una breve descripción de
-            la situación.
-          </p>
-        </div>
-      </aside>
+    <section class="aviso-pedagogico" aria-labelledby="titulo-aviso">
+      <h2 id="titulo-aviso">Observaciones sobre el recurso</h2>
+      <p>
+        Si encuentras algún error, contenido desactualizado o tienes una
+        sugerencia de mejora, comunícate mediante los correos indicados.
+        Incluye el nombre del juego observado y una breve descripción de la
+        situación.
+      </p>
     </section>
   </main>
 
   <footer>
     <div class="footer-contenido">
       <div class="footer-bloque">
-        <h2>Materiales Educativos Accesibles</h2>
+        <h2>Juegos interactivos accesibles</h2>
         <p>
-          Repositorio digital de apoyo para la inclusión educativa y la atención
-          a la diversidad.
+          Plataforma de juegos digitales para fortalecer la práctica educativa
+          mediante actividades visuales, lúdicas y accesibles.
         </p>
       </div>
 
@@ -282,10 +704,9 @@
         <h2>Enlaces</h2>
         <p>
           <a href="index.html">Inicio</a><br>
-          <a href="generador.html">Generador Braille</a><br>
-          <a href="pictogramas.html">Pictogramas y apoyos visuales</a><br>
-          <a href="contacto.html">Contacto</a><br>
-          <a href="index.html#aviso-pedagogico">Advertencia pedagógica</a>
+          <a href="juegos/adivina-sena.html">Adivina la seña</a><br>
+          <a href="juegos/adivina-braille.html">Adivina el signo Braille</a><br>
+          <a href="contacto.html">Contacto</a>
         </p>
       </div>
 
@@ -298,21 +719,19 @@
       </div>
 
       <div class="footer-bloque">
-        <h2>Créditos y licencias</h2>
+        <h2>Uso pedagógico</h2>
         <p>
-          Algunos recursos pueden utilizar materiales de terceros. Los
-          pictogramas proceden de ARASAAC. Autor pictogramas: Sergio Palao.
-          Propiedad: Gobierno de Aragón, España. Licencia: Creative Commons
-          BY-NC-SA.
+          Recurso de apoyo para actividades de reconocimiento, asociación,
+          memoria visual y aprendizaje progresivo.
         </p>
       </div>
     </div>
 
     <div class="footer-final">
       <p>
-        © 2026 Materiales Educativos Accesibles. Desarrollado por Gabriel
-        Berrospi con apoyo institucional del CREBE "Señor de los Milagros" -
-        Ucayali. Plataforma educativa sin fines de lucro.
+        © 2026 Juegos Interactivos Accesibles. Desarrollado como recurso de apoyo
+        institucional para la accesibilidad, la inclusión y el fortalecimiento de
+        la práctica pedagógica.
       </p>
     </div>
   </footer>
