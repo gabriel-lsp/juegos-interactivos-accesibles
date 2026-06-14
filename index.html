@@ -416,88 +416,62 @@
 
     .enlace-material:hover{
       background:#0b4f4a;
-      color:#ffffff;
     }
 
     .nota{
-      margin-top:24px;
-      padding:24px 26px;
+      margin-top:22px;
+      padding:26px;
       box-shadow:0 10px 22px rgba(16,42,67,.06);
     }
 
     footer{
       background:#082f49;
       color:#ffffff;
-      padding:36px 18px 26px;
+      padding:36px 18px;
     }
 
     .footer-contenido{
       max-width:1120px;
       margin:0 auto;
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:24px;
+      grid-template-columns:1.4fr .8fr;
+      gap:28px;
     }
 
-    .footer-bloque h2{
+    .footer-bloque h2,
+    .footer-bloque h3{
       margin:0 0 10px;
-      font-size:1rem;
-      color:#ffffff;
+      font-size:1.05rem;
     }
 
     .footer-bloque p{
       margin:0;
-      color:rgba(255,255,255,.84);
-      line-height:1.6;
-      font-size:.92rem;
+      color:rgba(255,255,255,.82);
+      line-height:1.65;
+      font-size:.95rem;
     }
 
     .footer-bloque a{
-      color:rgba(255,255,255,.9);
-      text-decoration:none;
-    }
-
-    .footer-bloque a:hover{
-      text-decoration:underline;
-    }
-
-    .footer-final{
-      max-width:1120px;
-      margin:28px auto 0;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.18);
-      color:rgba(255,255,255,.78);
-      font-size:.9rem;
-      line-height:1.6;
-      text-align:center;
-    }
-
-    .footer-final p{
-      margin:0;
+      color:#ffffff;
+      font-weight:800;
     }
 
     @media (max-width:900px){
-      .bloque-presentacion{
-        grid-template-columns:1fr;
-      }
-
-      .grid-materiales{
-        grid-template-columns:repeat(2,1fr);
-      }
-
+      .grid-materiales,
+      .bloque-presentacion,
       .footer-contenido{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:1fr;
       }
     }
 
-    @media (max-width:700px){
+    @media (max-width:640px){
       .cabecera{
-        padding:24px 18px 120px;
+        padding-bottom:125px;
       }
 
       .navegacion{
-        flex-direction:column;
         align-items:flex-start;
+        flex-direction:column;
       }
 
       .portada{
@@ -506,13 +480,12 @@
 
       .bloque-institucional{
         align-items:flex-start;
-        gap:16px;
       }
 
       .logo-crebe,
       .logo-fallback{
-        width:78px;
-        height:78px;
+        width:72px;
+        height:72px;
       }
 
       .texto-institucional{
@@ -644,7 +617,7 @@
 
       <section class="grid-materiales" aria-label="Listado de juegos interactivos">
 
-        <article class="tarjeta-material disponible">
+        <article class="tarjeta-material">
           <div>
             <div class="material-icono" aria-hidden="true">01</div>
             <h3>Adivina la seña</h3>
@@ -656,12 +629,11 @@
           </div>
 
           <div class="tarjeta-pie">
-            <span class="estado-material disponible">En construcción</span>
-            <a class="enlace-material" href="juegos/en-construccion.html">Jugar</a>
+            <span class="estado-material construccion">En construcción</span>
           </div>
         </article>
 
-        <article class="tarjeta-material disponible">
+        <article class="tarjeta-material">
           <div>
             <div class="material-icono" aria-hidden="true">02</div>
             <h3>Adivina el signo Braille</h3>
@@ -673,8 +645,7 @@
           </div>
 
           <div class="tarjeta-pie">
-            <span class="estado-material disponible">En construcción</span>
-            <a class="enlace-material" href="juegos/en-construccion.html">Jugar</a>
+            <span class="estado-material construccion">En construcción</span>
           </div>
         </article>
 
@@ -762,36 +733,12 @@
       </div>
 
       <div class="footer-bloque">
-        <h2>Enlaces</h2>
+        <h3>Proyecto educativo</h3>
         <p>
-          <a href="juegos/adivina-sena.html">Adivina la seña</a><br>
-          <a href="juegos/adivina-braille.html">Adivina el signo Braille</a>
+          Desarrollado por Gabriel Bermúdez con apoyo institucional del CREBE
+          "Señor de los Milagros" - Ucayali.
         </p>
       </div>
-
-      <div class="footer-bloque">
-        <h2>Institución</h2>
-        <p>
-          CREBE "Señor de los Milagros" - Ucayali<br>
-          Centro de Recursos de Educación Básica Especial
-        </p>
-      </div>
-
-      <div class="footer-bloque">
-        <h2>Uso pedagógico</h2>
-        <p>
-          Recurso de apoyo para actividades de reconocimiento, asociación,
-          memoria visual y aprendizaje progresivo.
-        </p>
-      </div>
-    </div>
-
-    <div class="footer-final">
-      <p>
-        © 2026 Juegos Interactivos Accesibles. Desarrollado como recurso de apoyo
-        institucional para la accesibilidad, la inclusión y el fortalecimiento de
-        la práctica pedagógica.
-      </p>
     </div>
   </footer>
 </body>
