@@ -11,132 +11,209 @@
 
   <style>
     :root{
-      --azul-900:#17324d;
-      --azul-800:#21466a;
-      --azul-700:#2f5f7d;
-      --verde-700:#1f6a5a;
-      --verde-100:#e5f3ef;
-      --arena-50:#faf9f6;
-      --arena-100:#f2efe8;
-      --tinta:#202c35;
-      --texto-suave:#5b6871;
+      --azul-900:#082f49;
+      --azul-800:#0b3f5c;
+      --azul-700:#114e60;
+      --verde-900:#064e3b;
+      --verde-800:#0b4f4a;
+      --verde-700:#0f766e;
+      --verde-100:#e6f4f1;
+      --verde-50:#f0fdfa;
       --blanco:#ffffff;
-      --borde:#d8e2e8;
+      --gris-900:#102a43;
+      --gris-700:#334e68;
+      --gris-600:#486581;
+      --gris-500:#627d98;
+      --gris-300:#d9e2ec;
+      --gris-100:#f0f4f8;
+      --amarillo-100:#fff4d6;
+      --amarillo-700:#8a5a00;
       --naranja:#c05621;
       --marron:#8a6a2f;
       --morado:#6d5b8c;
       --turquesa:#26727a;
+      --sombra:0 18px 42px rgba(16,42,67,.16);
     }
 
     *{
       box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       margin:0;
-      background:#f4f7f9;
       font-family:Arial, Helvetica, sans-serif;
-      color:var(--tinta);
+      background:linear-gradient(180deg,#f0f4f8 0%,#ffffff 52%,#f7fafc 100%);
+      color:var(--gris-900);
     }
 
-    .pagina{
-      max-width:1180px;
-      margin:0 auto;
-      padding:42px 18px 56px;
+    a{
+      color:inherit;
     }
 
-    .hero{
-      display:grid;
-      grid-template-columns:auto 1fr;
-      gap:22px;
-      align-items:center;
-      background:linear-gradient(135deg,var(--azul-900),var(--azul-700));
-      border-radius:26px;
-      padding:34px;
-      color:var(--blanco);
-      box-shadow:0 18px 38px rgba(31,41,51,.18);
-      overflow:hidden;
-      position:relative;
-    }
-
-    .hero::after{
-      content:"";
+    .salto-contenido{
       position:absolute;
-      right:-70px;
-      top:-80px;
-      width:260px;
-      height:260px;
-      border-radius:50%;
-      background:rgba(255,255,255,.09);
+      left:-999px;
+      top:12px;
+      background:var(--gris-900);
+      color:var(--blanco);
+      padding:10px 14px;
+      border-radius:10px;
+      z-index:50;
     }
 
-    .logo-area{
-      width:98px;
-      height:98px;
-      border-radius:24px;
-      background:rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.28);
+    .salto-contenido:focus{
+      left:12px;
+    }
+
+    .cabecera{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 84% 70%,rgba(255,255,255,.11) 0 22%,transparent 23%),
+        radial-gradient(circle at 86% 74%,rgba(255,255,255,.08) 0 36%,transparent 37%),
+        linear-gradient(135deg,#0b3550 0%,#0f4f57 48%,#0f766e 100%);
+      color:var(--blanco);
+      padding:30px 18px 145px;
+    }
+
+    .navegacion{
+      max-width:1120px;
+      margin:0 auto;
       display:flex;
       align-items:center;
-      justify-content:center;
-      padding:10px;
-      position:relative;
-      z-index:1;
+      justify-content:space-between;
+      gap:20px;
     }
 
-    .logo-area img{
-      max-width:100%;
-      max-height:100%;
+    .marca{
+      display:inline-flex;
+      align-items:center;
+      gap:14px;
+      color:var(--blanco);
+      text-decoration:none;
+      font-weight:900;
+      font-size:1.05rem;
+    }
+
+    .marca-icono{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--blanco);
+      color:#0b3550;
+      font-weight:900;
+      font-size:.9rem;
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
+    }
+
+    .enlace-cabecera{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:10px 22px;
+      border:1px solid rgba(255,255,255,.45);
+      border-radius:999px;
+      color:var(--blanco);
+      text-decoration:none;
+      font-weight:800;
+      background:rgba(255,255,255,.08);
+    }
+
+    .enlace-cabecera:hover{
+      background:rgba(255,255,255,.16);
+    }
+
+    .portada{
+      max-width:1120px;
+      margin:70px auto 0;
+    }
+
+    .bloque-institucional{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      margin-bottom:34px;
+    }
+
+    .logo-crebe{
+      width:92px;
+      height:92px;
       object-fit:contain;
-      display:block;
     }
 
     .logo-fallback{
-      width:76px;
-      height:76px;
+      width:92px;
+      height:92px;
       border-radius:50%;
-      background:var(--blanco);
-      color:var(--azul-900);
+      background:#ffffff;
+      color:#0b3550;
       display:none;
       align-items:center;
       justify-content:center;
-      font-weight:800;
-      font-size:15px;
+      font-weight:900;
+      font-size:.9rem;
       letter-spacing:.04em;
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
     }
 
-    .hero-texto{
-      position:relative;
-      z-index:1;
+    .texto-institucional{
+      border-left:2px solid rgba(255,255,255,.35);
+      padding-left:22px;
+    }
+
+    .nombre-institucional{
+      margin:0 0 8px;
+      color:var(--blanco);
+      font-size:1.2rem;
+      font-weight:900;
+      line-height:1.25;
+    }
+
+    .detalle-institucional{
+      margin:0;
+      color:rgba(255,255,255,.94);
+      font-size:1rem;
+      font-weight:700;
+      line-height:1.4;
     }
 
     .etiqueta{
-      margin:0 0 10px;
-      color:#d9e8f2;
-      font-weight:700;
-      letter-spacing:.08em;
+      margin:0 0 14px;
+      color:#c9f7ee;
+      font-size:.86rem;
+      font-weight:900;
+      letter-spacing:.18em;
       text-transform:uppercase;
-      font-size:.82rem;
     }
 
-    h1{
-      margin:0;
-      font-size:clamp(2rem,4vw,3.25rem);
-      line-height:1.05;
-      letter-spacing:-.03em;
+    .portada h1{
+      max-width:860px;
+      margin:0 0 22px;
       color:var(--blanco);
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(2.5rem,5.8vw,4.15rem);
+      line-height:1.04;
+      letter-spacing:-.04em;
     }
 
     .subtitulo{
-      max-width:830px;
-      margin:16px 0 0;
-      font-size:1.08rem;
-      line-height:1.7;
-      color:#edf6fb;
+      max-width:880px;
+      margin:0;
+      color:rgba(255,255,255,.96);
+      font-size:1.22rem;
+      line-height:1.65;
     }
 
     .franja-info{
-      margin-top:22px;
+      margin-top:24px;
       display:flex;
       gap:12px;
       flex-wrap:wrap;
@@ -145,121 +222,172 @@
     .chip{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      padding:9px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.13);
-      border:1px solid rgba(255,255,255,.22);
-      color:#f7fbfd;
-      font-size:.92rem;
-      font-weight:700;
-    }
-
-    .acciones-superiores{
-      margin-top:18px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      position:relative;
-      z-index:1;
-    }
-
-    .boton-secundario{
-      display:inline-flex;
-      align-items:center;
       justify-content:center;
-      min-height:44px;
-      border-radius:14px;
-      padding:11px 16px;
-      background:rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.25);
-      color:var(--blanco);
-      text-decoration:none;
+      padding:9px 15px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.28);
+      color:#ffffff;
+      font-size:.92rem;
       font-weight:800;
-      font-size:.95rem;
     }
 
-    .bloque-presentacion{
-      margin-top:28px;
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:22px;
-      align-items:stretch;
+    main{
+      max-width:1120px;
+      margin:-78px auto 0;
+      padding:0 18px 44px;
+      position:relative;
+      z-index:2;
     }
 
-    .panel{
+    .panel-principal,
+    .panel-presentacion,
+    .aviso-pedagogico,
+    .nota{
       background:var(--blanco);
-      border:1px solid var(--borde);
-      border-radius:22px;
-      padding:24px;
-      box-shadow:0 10px 26px rgba(31,41,51,.08);
+      border:1px solid var(--gris-300);
+      border-radius:26px;
+      box-shadow:var(--sombra);
     }
 
-    .panel h2{
+    .panel-principal{
+      padding:34px 46px 40px;
+    }
+
+    .panel-encabezado{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:30px;
+    }
+
+    .sobretitulo{
       margin:0 0 12px;
-      color:var(--azul-900);
-      font-size:1.45rem;
-      line-height:1.25;
+      color:var(--verde-700);
+      font-size:.86rem;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
     }
 
-    .panel p{
+    .panel-encabezado h2,
+    .panel-presentacion h2,
+    .aviso-pedagogico h2,
+    .nota h2{
       margin:0;
-      color:var(--texto-suave);
-      line-height:1.72;
+      color:#072f57;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(1.9rem,3.6vw,2.65rem);
+      line-height:1.1;
+    }
+
+    .texto-panel{
+      max-width:860px;
+      margin:14px 0 0;
+      color:var(--gris-600);
+      line-height:1.65;
       font-size:1rem;
     }
 
-    .aviso{
-      background:var(--verde-100);
-      border-color:#c5e2d8;
+    .acciones-superiores{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:26px 0 0;
     }
 
-    .aviso h2{
+    .boton-enlace{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:10px 22px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:900;
+      background:var(--verde-700);
+      color:var(--blanco);
+    }
+
+    .boton-enlace:hover{
+      background:var(--verde-800);
+    }
+
+    .boton-enlace.secundario{
+      background:#ffffff;
       color:var(--verde-700);
+      border:1px solid var(--verde-700);
     }
 
-    .seccion-titulo{
-      margin:34px 0 16px;
+    .boton-enlace.secundario:hover{
+      background:var(--verde-50);
     }
 
-    .seccion-titulo h2{
-      margin:0 0 8px;
-      color:var(--azul-900);
+    .bloque-presentacion{
+      margin-top:24px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:22px;
+    }
+
+    .panel-presentacion,
+    .aviso-pedagogico{
+      padding:26px;
+      box-shadow:0 10px 22px rgba(16,42,67,.06);
+    }
+
+    .panel-presentacion h2,
+    .aviso-pedagogico h2,
+    .nota h2{
       font-size:1.55rem;
+      margin-bottom:12px;
     }
 
-    .seccion-titulo p{
+    .panel-presentacion p,
+    .aviso-pedagogico p,
+    .nota p{
       margin:0;
-      color:var(--texto-suave);
-      line-height:1.65;
-      max-width:850px;
+      color:var(--gris-600);
+      line-height:1.7;
+      font-size:1rem;
+    }
+
+    .aviso-pedagogico{
+      background:linear-gradient(180deg,#ffffff 0%,#eef9f6 100%);
+      border-color:rgba(15,118,110,.35);
+    }
+
+    .aviso-pedagogico h2{
+      color:var(--verde-700);
     }
 
     .tarjetas{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(3,1fr);
       gap:18px;
-      margin-top:20px;
+      margin-top:28px;
     }
 
     .tarjeta{
+      background:#ffffff;
+      border:1px solid #d9e2ec;
+      border-radius:24px;
+      padding:22px;
       min-height:285px;
       display:flex;
       flex-direction:column;
-      background:var(--blanco);
-      border:1px solid var(--borde);
-      border-radius:24px;
-      padding:22px;
+      justify-content:space-between;
       text-decoration:none;
-      color:var(--tinta);
-      box-shadow:0 10px 24px rgba(31,41,51,.08);
+      color:var(--gris-900);
+      box-shadow:0 10px 22px rgba(16,42,67,.06);
       transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
 
     .tarjeta:hover{
       transform:translateY(-4px);
-      box-shadow:0 16px 34px rgba(31,41,51,.14);
-      border-color:#b8ccd8;
+      box-shadow:0 16px 34px rgba(16,42,67,.13);
+      border-color:rgba(15,118,110,.35);
     }
 
     .tarjeta[aria-disabled="true"]{
@@ -268,160 +396,179 @@
 
     .tarjeta[aria-disabled="true"]:hover{
       transform:none;
+      box-shadow:0 10px 22px rgba(16,42,67,.06);
+      border-color:#d9e2ec;
     }
 
-    .numero{
-      width:46px;
-      height:46px;
-      border-radius:50%;
+    .material-icono{
+      width:56px;
+      height:56px;
+      border-radius:18px;
+      background:#e6f4f1;
+      color:#0f766e;
       display:flex;
       align-items:center;
       justify-content:center;
-      background:var(--azul-900);
-      color:var(--blanco);
-      font-weight:800;
+      font-weight:900;
       font-size:1rem;
-      margin-bottom:18px;
+      margin-bottom:16px;
     }
 
-    .tarjeta.braille .numero{
-      background:var(--verde-700);
+    .tarjeta.lsp .material-icono{
+      background:#e6f4f1;
+      color:var(--verde-700);
     }
 
-    .tarjeta.memoria .numero{
-      background:var(--naranja);
+    .tarjeta.braille .material-icono{
+      background:#eaf4ff;
+      color:#174a7c;
     }
 
-    .tarjeta.pareja .numero{
-      background:var(--marron);
+    .tarjeta.memoria .material-icono{
+      background:#fff4d6;
+      color:var(--naranja);
     }
 
-    .tarjeta.convertidor .numero{
-      background:var(--morado);
+    .tarjeta.pareja .material-icono{
+      background:#f6edda;
+      color:var(--marron);
     }
 
-    .tarjeta.mixto .numero{
-      background:var(--turquesa);
+    .tarjeta.convertidor .material-icono{
+      background:#f0ebf8;
+      color:var(--morado);
+    }
+
+    .tarjeta.mixto .material-icono{
+      background:#e7f7f8;
+      color:var(--turquesa);
     }
 
     .estado{
-      display:inline-flex;
-      align-items:center;
+      display:inline-block;
       width:max-content;
-      margin-bottom:14px;
-      padding:6px 11px;
+      margin:0 0 12px;
+      padding:8px 12px;
       border-radius:999px;
-      background:var(--arena-100);
-      color:#6e5a34;
       font-size:.82rem;
-      font-weight:800;
+      font-weight:900;
+      background:var(--amarillo-100);
+      color:var(--amarillo-700);
     }
 
     .tarjeta h3{
       margin:0 0 10px;
-      color:var(--azul-900);
-      font-size:1.28rem;
+      color:#0b2f4a;
+      font-size:1.15rem;
       line-height:1.25;
     }
 
-    .tarjeta.braille h3{
-      color:var(--verde-700);
-    }
-
-    .tarjeta.memoria h3{
-      color:var(--naranja);
-    }
-
-    .tarjeta.pareja h3{
-      color:var(--marron);
-    }
-
-    .tarjeta.convertidor h3{
-      color:var(--morado);
-    }
-
-    .tarjeta.mixto h3{
-      color:var(--turquesa);
-    }
-
     .tarjeta p{
-      margin:0 0 18px;
-      color:var(--texto-suave);
-      line-height:1.62;
-      font-size:.97rem;
-      flex:1;
+      margin:0;
+      color:var(--gris-600);
+      line-height:1.58;
+      font-size:.96rem;
     }
 
-    .boton{
-      display:inline-flex;
+    .tarjeta-pie{
+      margin-top:22px;
+      display:flex;
+      justify-content:space-between;
       align-items:center;
-      justify-content:center;
-      width:100%;
-      min-height:46px;
-      border-radius:14px;
-      background:var(--azul-900);
-      color:var(--blanco);
-      font-weight:800;
-      text-align:center;
-      padding:12px 16px;
-      margin-top:auto;
+      gap:10px;
+      flex-wrap:wrap;
     }
 
-    .braille .boton{
-      background:var(--verde-700);
+    .enlace-juego{
+      display:inline-block;
+      text-decoration:none;
+      background:#0f766e;
+      color:#ffffff;
+      padding:9px 16px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:.9rem;
     }
 
-    .memoria .boton{
+    .tarjeta.braille .enlace-juego{
+      background:#174a7c;
+    }
+
+    .tarjeta.memoria .enlace-juego{
       background:var(--naranja);
     }
 
-    .pareja .boton{
+    .tarjeta.pareja .enlace-juego{
       background:var(--marron);
     }
 
-    .convertidor .boton{
+    .tarjeta.convertidor .enlace-juego{
       background:var(--morado);
     }
 
-    .mixto .boton{
+    .tarjeta.mixto .enlace-juego{
       background:var(--turquesa);
     }
 
+    .enlace-juego:hover{
+      opacity:.92;
+    }
+
     .nota{
-      margin-top:28px;
-      background:var(--blanco);
-      border:1px solid var(--borde);
-      border-radius:22px;
-      padding:22px 24px;
-      box-shadow:0 10px 24px rgba(31,41,51,.07);
+      margin-top:24px;
+      padding:24px 26px;
+      box-shadow:0 10px 22px rgba(16,42,67,.06);
     }
 
-    .nota h2{
+    footer{
+      background:#082f49;
+      color:#ffffff;
+      padding:36px 18px 26px;
+    }
+
+    .footer-contenido{
+      max-width:1120px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+    }
+
+    .footer-bloque h2{
       margin:0 0 10px;
-      color:var(--azul-900);
-      font-size:1.35rem;
+      font-size:1rem;
+      color:#ffffff;
     }
 
-    .nota p{
+    .footer-bloque p{
       margin:0;
-      color:var(--texto-suave);
-      line-height:1.7;
+      color:rgba(255,255,255,.84);
+      line-height:1.6;
+      font-size:.92rem;
     }
 
-    .pie{
-      margin-top:28px;
-      padding:22px 24px;
-      border-radius:22px;
-      background:var(--arena-50);
-      border:1px solid var(--borde);
-      color:var(--texto-suave);
-      line-height:1.65;
+    .footer-bloque a{
+      color:rgba(255,255,255,.9);
+      text-decoration:none;
+    }
+
+    .footer-bloque a:hover{
+      text-decoration:underline;
+    }
+
+    .footer-final{
+      max-width:1120px;
+      margin:28px auto 0;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.18);
+      color:rgba(255,255,255,.78);
+      font-size:.9rem;
+      line-height:1.6;
       text-align:center;
-      font-size:.95rem;
     }
 
-    .pie strong{
-      color:var(--azul-900);
+    .footer-final p{
+      margin:0;
     }
 
     @media (max-width:900px){
@@ -430,160 +577,341 @@
       }
 
       .tarjetas{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .footer-contenido{
+        grid-template-columns:repeat(2,1fr);
       }
     }
 
-    @media (max-width:640px){
-      .pagina{
-        padding:28px 14px 42px;
+    @media (max-width:700px){
+      .cabecera{
+        padding:24px 18px 120px;
       }
 
-      .hero{
+      .navegacion{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .portada{
+        margin-top:48px;
+      }
+
+      .bloque-institucional{
+        align-items:flex-start;
+        gap:16px;
+      }
+
+      .logo-crebe,
+      .logo-fallback{
+        width:78px;
+        height:78px;
+      }
+
+      .texto-institucional{
+        padding-left:16px;
+      }
+
+      .nombre-institucional{
+        font-size:1.05rem;
+      }
+
+      .detalle-institucional{
+        font-size:.92rem;
+      }
+
+      .panel-principal{
+        padding:26px 18px 32px;
+      }
+
+      .panel-encabezado{
+        display:block;
+      }
+
+      .tarjetas{
         grid-template-columns:1fr;
+      }
+
+      .tarjeta-pie{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .enlace-juego{
+        width:100%;
         text-align:center;
-        padding:28px 20px;
       }
 
-      .logo-area{
-        margin:0 auto;
-      }
-
-      .franja-info,
-      .acciones-superiores{
-        justify-content:center;
-      }
-
-      .panel,
-      .tarjeta{
-        padding:20px;
+      .footer-contenido{
+        grid-template-columns:1fr;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="pagina">
-    <section class="hero">
-      <div class="logo-area">
-        <img src="https://gabriel-lsp.github.io/banco-digital-braille/logo-crebe.png" alt="Logo del CREBE Señor de los Milagros" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="logo-fallback">CREBE</div>
+  <a class="salto-contenido" href="#contenido-principal">
+    Ir al contenido
+  </a>
+
+  <header class="cabecera">
+    <nav class="navegacion" aria-label="Navegación principal">
+      <a class="marca" href="https://crebeucayali.weebly.com/" aria-label="Ir a la plataforma principal">
+        <span class="marca-icono" aria-hidden="true">JIA</span>
+        <span>Juegos Interactivos Accesibles</span>
+      </a>
+
+      <a class="enlace-cabecera" href="https://crebeucayali.weebly.com/">
+        Volver a la plataforma CREBE
+      </a>
+    </nav>
+
+    <div class="portada">
+      <div class="bloque-institucional" aria-label="Identidad institucional">
+        <img
+          class="logo-crebe"
+          src="https://gabriel-lsp.github.io/banco-digital-braille/logo-crebe.png"
+          alt="Logo del CREBE Señor de los Milagros - Ucayali"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <div class="logo-fallback" aria-hidden="true">CREBE</div>
+
+        <div class="texto-institucional">
+          <p class="nombre-institucional">
+            CREBE "Señor de los Milagros" - Ucayali
+          </p>
+          <p class="detalle-institucional">
+            Centro de Recursos de Educación Básica Especial
+          </p>
+        </div>
       </div>
 
-      <div class="hero-texto">
-        <p class="etiqueta">CREBE "Señor de los Milagros" - Ucayali</p>
-        <h1>Juegos interactivos accesibles</h1>
-        <p class="subtitulo">
-          Actividades digitales para practicar Lengua de Señas Peruana y sistema Braille mediante retos visuales, memoria, asociación y reconocimiento de signos.
-        </p>
+      <p class="etiqueta">Plataforma educativa accesible</p>
+      <h1>Juegos interactivos accesibles</h1>
+      <p class="subtitulo">
+        Actividades digitales para practicar Lengua de Señas Peruana y sistema
+        Braille mediante retos visuales, memoria, asociación y reconocimiento de
+        signos.
+      </p>
 
-        <div class="franja-info">
-          <span class="chip">Lengua de Señas Peruana</span>
-          <span class="chip">Sistema Braille</span>
-          <span class="chip">Aprendizaje lúdico</span>
+      <div class="franja-info">
+        <span class="chip">Lengua de Señas Peruana</span>
+        <span class="chip">Sistema Braille</span>
+        <span class="chip">Aprendizaje lúdico</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+    <section class="panel-principal" aria-labelledby="titulo-juegos">
+      <div class="panel-encabezado">
+        <div>
+          <p class="sobretitulo">Banco de juegos</p>
+          <h2 id="titulo-juegos">Seleccione un juego interactivo</h2>
+          <p class="texto-panel">
+            Las primeras actividades están orientadas al reconocimiento de señas
+            y signos Braille. Los demás módulos quedan disponibles como espacios
+            proyectados para próximas versiones.
+          </p>
+        </div>
+      </div>
+
+      <div class="acciones-superiores">
+        <a
+          class="boton-enlace"
+          href="https://gabriel-lsp.github.io/banco-digital-lsp/"
+          target="_blank"
+          rel="noopener"
+        >
+          Ir al banco LSP
+        </a>
+
+        <a
+          class="boton-enlace secundario"
+          href="https://gabriel-lsp.github.io/banco-digital-braille/"
+          target="_blank"
+          rel="noopener"
+        >
+          Ir al banco Braille
+        </a>
+      </div>
+
+      <section class="bloque-presentacion" aria-label="Presentación del recurso">
+        <div class="panel-presentacion">
+          <h2>Propósito del recurso</h2>
+          <p>
+            Este espacio reúne juegos breves, accesibles y de uso sencillo para
+            fortalecer la práctica educativa. Está pensado como apoyo para
+            docentes, estudiantes y familias en actividades de reconocimiento,
+            asociación y aprendizaje progresivo.
+          </p>
         </div>
 
-        <div class="acciones-superiores">
-          <a class="boton-secundario" href="https://gabriel-lsp.github.io/banco-digital-lsp/" target="_blank" rel="noopener">Ir al banco LSP</a>
-          <a class="boton-secundario" href="https://gabriel-lsp.github.io/banco-digital-braille/" target="_blank" rel="noopener">Ir al banco Braille</a>
+        <div class="aviso-pedagogico">
+          <h2>Orientación de uso</h2>
+          <p>
+            Seleccione un juego, lea la consigna y responda según la imagen,
+            palabra o signo presentado. Los juegos pueden utilizarse en aula,
+            sesiones de apoyo o actividades familiares.
+          </p>
         </div>
-      </div>
+      </section>
+
+      <section class="tarjetas" aria-label="Listado de juegos interactivos">
+        <a class="tarjeta lsp" href="juegos/adivina-sena.html">
+          <div>
+            <div class="material-icono" aria-hidden="true">01</div>
+            <h3>Adivina la seña</h3>
+            <p>
+              Observe la imagen de una seña y seleccione la palabra correcta
+              entre varias alternativas. Actividad dirigida al reconocimiento
+              visual y asociación palabra-seña.
+            </p>
+          </div>
+
+          <div class="tarjeta-pie">
+            <span class="enlace-juego">Jugar</span>
+          </div>
+        </a>
+
+        <a class="tarjeta braille" href="juegos/adivina-braille.html">
+          <div>
+            <div class="material-icono" aria-hidden="true">02</div>
+            <h3>Adivina el signo Braille</h3>
+            <p>
+              Observe el signo Braille y seleccione la letra, número o símbolo
+              correspondiente. Actividad dirigida al reconocimiento inicial del
+              sistema Braille.
+            </p>
+          </div>
+
+          <div class="tarjeta-pie">
+            <span class="enlace-juego">Jugar</span>
+          </div>
+        </a>
+
+        <a class="tarjeta memoria" href="#" onclick="return false;" aria-disabled="true">
+          <div>
+            <div class="material-icono" aria-hidden="true">03</div>
+            <span class="estado">Próximamente</span>
+            <h3>Memoria visual</h3>
+            <p>
+              Juego de cartas para encontrar parejas entre palabras, señas,
+              imágenes o signos Braille, fortaleciendo atención y memoria visual.
+            </p>
+          </div>
+
+          <div class="tarjeta-pie">
+            <span class="enlace-juego">En construcción</span>
+          </div>
+        </a>
+
+        <a class="tarjeta pareja" href="#" onclick="return false;" aria-disabled="true">
+          <div>
+            <div class="material-icono" aria-hidden="true">04</div>
+            <span class="estado">Próximamente</span>
+            <h3>Encuentra la pareja</h3>
+            <p>
+              Actividad para asociar palabra escrita con seña, signo Braille o
+              imagen correspondiente mediante selección de pares.
+            </p>
+          </div>
+
+          <div class="tarjeta-pie">
+            <span class="enlace-juego">En construcción</span>
+          </div>
+        </a>
+
+        <a class="tarjeta convertidor" href="#" onclick="return false;" aria-disabled="true">
+          <div>
+            <div class="material-icono" aria-hidden="true">05</div>
+            <span class="estado">Próximamente</span>
+            <h3>Escribe y convierte a Braille</h3>
+            <p>
+              Recurso interactivo para escribir palabras, visualizar su
+              representación en Braille y practicar la formación de secuencias.
+            </p>
+          </div>
+
+          <div class="tarjeta-pie">
+            <span class="enlace-juego">En construcción</span>
+          </div>
+        </a>
+
+        <a class="tarjeta mixto" href="#" onclick="return false;" aria-disabled="true">
+          <div>
+            <div class="material-icono" aria-hidden="true">06</div>
+            <span class="estado">Próximamente</span>
+            <h3>Reto mixto LSP y Braille</h3>
+            <p>
+              Actividad combinada para practicar reconocimiento de señas,
+              palabras y signos Braille en un mismo recorrido de aprendizaje.
+            </p>
+          </div>
+
+          <div class="tarjeta-pie">
+            <span class="enlace-juego">En construcción</span>
+          </div>
+        </a>
+      </section>
     </section>
 
-    <section class="bloque-presentacion">
-      <div class="panel">
-        <h2>Propósito del recurso</h2>
-        <p>
-          Este espacio reúne juegos breves, accesibles y de uso sencillo para fortalecer la práctica educativa. Está pensado como apoyo para docentes, estudiantes y familias en actividades de reconocimiento, asociación y aprendizaje progresivo.
-        </p>
-      </div>
-
-      <div class="panel aviso">
-        <h2>Orientación de uso</h2>
-        <p>
-          Seleccione un juego, lea la consigna y responda según la imagen, palabra o signo presentado. Los juegos pueden utilizarse en aula, sesiones de apoyo o actividades familiares.
-        </p>
-      </div>
-    </section>
-
-    <section class="seccion-titulo">
-      <h2>Seleccione un juego</h2>
+    <section class="nota" aria-labelledby="titulo-version">
+      <h2 id="titulo-version">Versión inicial</h2>
       <p>
-        Las primeras actividades estarán orientadas al reconocimiento de señas y signos Braille. Los demás módulos quedarán disponibles como espacios proyectados para próximas versiones.
+        Esta página funciona como menú central de los juegos interactivos. Cada
+        tarjeta dirigirá a una página propia del juego, manteniendo la identidad
+        visual de las plataformas CREBE.
       </p>
     </section>
-
-    <section class="tarjetas">
-      <a class="tarjeta lsp" href="juegos/adivina-sena.html">
-        <div class="numero">01</div>
-        <h3>Adivina la seña</h3>
-        <p>
-          Observe la imagen de una seña y seleccione la palabra correcta entre varias alternativas. Actividad dirigida al reconocimiento visual y asociación palabra-seña.
-        </p>
-        <span class="boton">Jugar</span>
-      </a>
-
-      <a class="tarjeta braille" href="juegos/adivina-braille.html">
-        <div class="numero">02</div>
-        <h3>Adivina el signo Braille</h3>
-        <p>
-          Observe el signo Braille y seleccione la letra, número o símbolo correspondiente. Actividad dirigida al reconocimiento inicial del sistema Braille.
-        </p>
-        <span class="boton">Jugar</span>
-      </a>
-
-      <a class="tarjeta memoria" href="#" onclick="return false;" aria-disabled="true">
-        <div class="numero">03</div>
-        <span class="estado">Próximamente</span>
-        <h3>Memoria visual</h3>
-        <p>
-          Juego de cartas para encontrar parejas entre palabras, señas, imágenes o signos Braille, fortaleciendo atención y memoria visual.
-        </p>
-        <span class="boton">En construcción</span>
-      </a>
-
-      <a class="tarjeta pareja" href="#" onclick="return false;" aria-disabled="true">
-        <div class="numero">04</div>
-        <span class="estado">Próximamente</span>
-        <h3>Encuentra la pareja</h3>
-        <p>
-          Actividad para asociar palabra escrita con seña, signo Braille o imagen correspondiente mediante selección de pares.
-        </p>
-        <span class="boton">En construcción</span>
-      </a>
-
-      <a class="tarjeta convertidor" href="#" onclick="return false;" aria-disabled="true">
-        <div class="numero">05</div>
-        <span class="estado">Próximamente</span>
-        <h3>Escribe y convierte a Braille</h3>
-        <p>
-          Recurso interactivo para escribir palabras, visualizar su representación en Braille y practicar la formación de secuencias.
-        </p>
-        <span class="boton">En construcción</span>
-      </a>
-
-      <a class="tarjeta mixto" href="#" onclick="return false;" aria-disabled="true">
-        <div class="numero">06</div>
-        <span class="estado">Próximamente</span>
-        <h3>Reto mixto LSP y Braille</h3>
-        <p>
-          Actividad combinada para practicar reconocimiento de señas, palabras y signos Braille en un mismo recorrido de aprendizaje.
-        </p>
-        <span class="boton">En construcción</span>
-      </a>
-    </section>
-
-    <section class="nota">
-      <h2>Versión inicial</h2>
-      <p>
-        Esta página funciona como menú central de los juegos interactivos. Cada tarjeta dirigirá a una página propia del juego, manteniendo la misma identidad visual de las plataformas CREBE.
-      </p>
-    </section>
-
-    <footer class="pie">
-      <strong>CREBE "Señor de los Milagros" - Ucayali.</strong><br>
-      Plataforma de juegos interactivos desarrollada como recurso de apoyo institucional para la accesibilidad, la inclusión y el fortalecimiento de la práctica pedagógica.
-    </footer>
   </main>
+
+  <footer>
+    <div class="footer-contenido">
+      <div class="footer-bloque">
+        <h2>Juegos interactivos accesibles</h2>
+        <p>
+          Plataforma de juegos digitales para fortalecer la práctica educativa
+          mediante actividades visuales, lúdicas y accesibles.
+        </p>
+      </div>
+
+      <div class="footer-bloque">
+        <h2>Enlaces</h2>
+        <p>
+          <a href="juegos/adivina-sena.html">Adivina la seña</a><br>
+          <a href="juegos/adivina-braille.html">Adivina el signo Braille</a><br>
+          <a href="https://gabriel-lsp.github.io/banco-digital-lsp/">Banco LSP</a><br>
+          <a href="https://gabriel-lsp.github.io/banco-digital-braille/">Banco Braille</a>
+        </p>
+      </div>
+
+      <div class="footer-bloque">
+        <h2>Institución</h2>
+        <p>
+          CREBE "Señor de los Milagros" - Ucayali<br>
+          Centro de Recursos de Educación Básica Especial
+        </p>
+      </div>
+
+      <div class="footer-bloque">
+        <h2>Uso pedagógico</h2>
+        <p>
+          Recurso de apoyo para actividades de reconocimiento, asociación,
+          memoria visual y aprendizaje progresivo.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-final">
+      <p>
+        © 2026 Juegos Interactivos Accesibles. Desarrollado como recurso de apoyo
+        institucional para la accesibilidad, la inclusión y el fortalecimiento de
+        la práctica pedagógica.
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
