@@ -6,108 +6,31 @@ const URL_IMAGENES_LSP = "https://gabriel-lsp.github.io/banco-digital-lsp/";
 const NIVELES = {
   basico: {
     nombre: "Básico",
+    clave: "BAS",
     meta: 5,
-    categorias: [
-      "familia",
-      "alimentos",
-      "colores",
-      "numeros",
-      "números",
-      "contexto escolar",
-      "saludos",
-      "animales",
-      "cuerpo humano"
-    ],
-    palabras: [
-      "agua",
-      "comer",
-      "casa",
-      "mamá",
-      "mama",
-      "papá",
-      "papa",
-      "niño",
-      "niña",
-      "profesor",
-      "colegio",
-      "escuela",
-      "rojo",
-      "azul",
-      "amarillo",
-      "verde"
-    ]
+    categorias: ["familia", "alimentos", "colores", "numeros", "números", "contexto escolar", "saludos", "animales", "cuerpo humano"],
+    palabras: ["agua", "comer", "casa", "mamá", "mama", "papá", "papa", "niño", "niña", "profesor", "colegio", "escuela", "rojo", "azul", "amarillo", "verde"]
   },
   intermedio: {
     nombre: "Intermedio",
+    clave: "INT",
     meta: 8,
-    categorias: [
-      "profesiones",
-      "instituciones y lugares",
-      "países y ciudades",
-      "paises y ciudades",
-      "dias de la semana",
-      "meses",
-      "verbos",
-      "emociones",
-      "primeros auxilios"
-    ]
+    categorias: ["profesiones", "instituciones y lugares", "países y ciudades", "paises y ciudades", "dias de la semana", "meses", "verbos", "emociones", "primeros auxilios"]
   },
   avanzado: {
     nombre: "Avanzado",
+    clave: "AVA",
     meta: 10,
-    categorias: [
-      "adjetivos",
-      "pronombres",
-      "preposiciones",
-      "conectores",
-      "valores",
-      "tecnologia",
-      "tecnología",
-      "secuencias",
-      "himno nacional",
-      "padre nuestro",
-      "ave maria",
-      "ave maría"
-    ]
+    categorias: ["adjetivos", "pronombres", "preposiciones", "conectores", "valores", "tecnologia", "tecnología", "secuencias", "himno nacional", "padre nuestro", "ave maria", "ave maría"]
   }
 };
 
 const datosFallback = [
-  {
-    id: "demo-1",
-    categoria: "familia",
-    palabra: "mamá",
-    descripcion: "Seña de uso frecuente en contexto familiar.",
-    archivo_imagen: "imagenes/familia/mama.png"
-  },
-  {
-    id: "demo-2",
-    categoria: "familia",
-    palabra: "papá",
-    descripcion: "Seña de uso frecuente en contexto familiar.",
-    archivo_imagen: "imagenes/familia/papa.png"
-  },
-  {
-    id: "demo-3",
-    categoria: "alimentos",
-    palabra: "agua",
-    descripcion: "Seña de uso cotidiano.",
-    archivo_imagen: "imagenes/alimentos/agua.png"
-  },
-  {
-    id: "demo-4",
-    categoria: "colores",
-    palabra: "azul",
-    descripcion: "Seña de uso común en actividades escolares.",
-    archivo_imagen: "imagenes/colores/azul.png"
-  },
-  {
-    id: "demo-5",
-    categoria: "contexto escolar",
-    palabra: "colegio",
-    descripcion: "Seña vinculada al contexto educativo.",
-    archivo_imagen: "imagenes/contexto-escolar/colegio.png"
-  }
+  { id: "demo-1", categoria: "familia", palabra: "mamá", descripcion: "Seña de uso frecuente en contexto familiar.", archivo_imagen: "imagenes/familia/mama.png" },
+  { id: "demo-2", categoria: "familia", palabra: "papá", descripcion: "Seña de uso frecuente en contexto familiar.", archivo_imagen: "imagenes/familia/papa.png" },
+  { id: "demo-3", categoria: "alimentos", palabra: "agua", descripcion: "Seña de uso cotidiano.", archivo_imagen: "imagenes/alimentos/agua.png" },
+  { id: "demo-4", categoria: "colores", palabra: "azul", descripcion: "Seña de uso común en actividades escolares.", archivo_imagen: "imagenes/colores/azul.png" },
+  { id: "demo-5", categoria: "contexto escolar", palabra: "colegio", descripcion: "Seña vinculada al contexto educativo.", archivo_imagen: "imagenes/contexto-escolar/colegio.png" }
 ];
 
 const elementos = {
@@ -140,7 +63,8 @@ const estado = {
   respuestaBloqueada: false,
   racha: 0,
   intentos: 0,
-  logrado: false
+  logrado: false,
+  codigoConstancia: ""
 };
 
 function normalizarTexto(texto) {
@@ -163,12 +87,7 @@ function formatearTexto(texto) {
 
 function obtenerUrlImagen(item) {
   const archivo = String(item.archivo_imagen || "").trim();
-
-  if (archivo.startsWith("http")) {
-    return archivo;
-  }
-
-  return URL_IMAGENES_LSP + archivo;
+  return archivo.startsWith("http") ? archivo : URL_IMAGENES_LSP + archivo;
 }
 
 function mezclar(lista) {
@@ -240,20 +159,9 @@ function obtenerDistractores(correcta) {
     normalizarTexto(item.palabra) !== palabraCorrecta
   );
 
-  const mismoNivel = estado.bancoNivel.filter((item) =>
-    normalizarTexto(item.palabra) !== palabraCorrecta
-  );
-
-  const todos = estado.banco.filter((item) =>
-    item.palabra &&
-    normalizarTexto(item.palabra) !== palabraCorrecta
-  );
-
-  const mezclados = limpiarDuplicadosPorPalabra([
-    ...mezclar(mismaCategoria),
-    ...mezclar(mismoNivel),
-    ...mezclar(todos)
-  ]);
+  const mismoNivel = estado.bancoNivel.filter((item) => normalizarTexto(item.palabra) !== palabraCorrecta);
+  const todos = estado.banco.filter((item) => item.palabra && normalizarTexto(item.palabra) !== palabraCorrecta);
+  const mezclados = limpiarDuplicadosPorPalabra([...mezclar(mismaCategoria), ...mezclar(mismoNivel), ...mezclar(todos)]);
 
   return mezclados.slice(0, 4);
 }
@@ -272,16 +180,14 @@ function crearPregunta() {
   elementos.mensaje.className = "mensaje";
 
   const correcta = mezclar(estado.bancoNivel)[0];
-  const distractores = obtenerDistractores(correcta);
-  const alternativas = mezclar([correcta, ...distractores]);
+  const alternativas = mezclar([correcta, ...obtenerDistractores(correcta)]);
 
   estado.preguntaActual = correcta;
   elementos.imagen.hidden = false;
   elementos.imagen.src = obtenerUrlImagen(correcta);
-  elementos.imagen.alt = `Seña en Lengua de Señas Peruana. Seleccione la palabra correcta entre las alternativas.`;
+  elementos.imagen.alt = "Seña en Lengua de Señas Peruana. Seleccione la palabra correcta entre las alternativas.";
   elementos.categoria.textContent = formatearTexto(correcta.categoria || "Lengua de Señas Peruana");
   elementos.pista.textContent = `Nivel ${NIVELES[estado.nivel].nombre}. Observe la seña y seleccione una alternativa.`;
-
   elementos.alternativas.innerHTML = "";
 
   alternativas.forEach((item) => {
@@ -302,6 +208,7 @@ function evaluarRespuesta(boton) {
 
   estado.respuestaBloqueada = true;
   estado.intentos += 1;
+
   const respuesta = boton.dataset.respuesta;
   const correcta = normalizarTexto(estado.preguntaActual.palabra);
   const botones = [...elementos.alternativas.querySelectorAll(".alternativa")];
@@ -343,19 +250,55 @@ function obtenerNombreParticipante() {
   return nombre || "Participante";
 }
 
+function obtenerIniciales(nombre) {
+  const partes = normalizarTexto(nombre).split(" ").filter(Boolean).slice(0, 3);
+  const iniciales = partes.map((parte) => parte.charAt(0).toUpperCase()).join("");
+  return iniciales || "P";
+}
+
+function generarCodigoConstancia(nombre, nivel) {
+  const fecha = new Date();
+  const anio = fecha.getFullYear();
+  const mes = String(fecha.getMonth() + 1).padStart(2, "0");
+  const dia = String(fecha.getDate()).padStart(2, "0");
+  const hora = String(fecha.getHours()).padStart(2, "0");
+  const minuto = String(fecha.getMinutes()).padStart(2, "0");
+  const segundo = String(fecha.getSeconds()).padStart(2, "0");
+  const aleatorio = Math.random().toString(36).slice(2, 6).toUpperCase();
+  const claveNivel = NIVELES[nivel].clave;
+  const iniciales = obtenerIniciales(nombre);
+
+  return `JIA-LSP-${claveNivel}-${anio}${mes}${dia}-${hora}${minuto}${segundo}-${iniciales}${aleatorio}`;
+}
+
+function asegurarCodigoEnConstancia() {
+  let codigo = document.querySelector("#codigo-constancia");
+
+  if (!codigo) {
+    codigo = document.createElement("p");
+    codigo.id = "codigo-constancia";
+    codigo.style.marginTop = "12px";
+    codigo.style.color = "#0f766e";
+    codigo.style.fontWeight = "900";
+    codigo.style.letterSpacing = ".06em";
+    elementos.fechaConstancia.closest("p").insertAdjacentElement("afterend", codigo);
+  }
+
+  return codigo;
+}
+
 function mostrarReconocimiento() {
   const configuracion = NIVELES[estado.nivel];
-  const fecha = new Intl.DateTimeFormat("es-PE", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric"
-  }).format(new Date());
+  const nombre = obtenerNombreParticipante();
+  const fecha = new Intl.DateTimeFormat("es-PE", { day: "2-digit", month: "long", year: "numeric" }).format(new Date());
 
-  elementos.nombreConstancia.textContent = obtenerNombreParticipante();
+  estado.codigoConstancia = generarCodigoConstancia(nombre, estado.nivel);
+  elementos.nombreConstancia.textContent = nombre;
   elementos.nivelConstancia.textContent = `nivel ${configuracion.nombre.toLocaleLowerCase("es")}`;
   elementos.fechaConstancia.textContent = fecha;
+  asegurarCodigoEnConstancia().textContent = `Código: ${estado.codigoConstancia}`;
   elementos.reconocimiento.hidden = false;
-  elementos.mensaje.textContent = `Logro alcanzado: completaste el nivel ${configuracion.nombre}. Ya puedes descargar tu reconocimiento simbólico.`;
+  elementos.mensaje.textContent = `Logro alcanzado: completaste el nivel ${configuracion.nombre}. Se generó la constancia simbólica con código ${estado.codigoConstancia}.`;
   elementos.mensaje.className = "mensaje correcto";
   elementos.reconocimiento.scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -365,6 +308,7 @@ function iniciarJuego() {
   estado.racha = 0;
   estado.intentos = 0;
   estado.logrado = false;
+  estado.codigoConstancia = "";
   prepararBancoNivel();
   actualizarIndicadores();
   crearPregunta();
@@ -374,15 +318,42 @@ function reiniciarNivel() {
   estado.racha = 0;
   estado.intentos = 0;
   estado.logrado = false;
+  estado.codigoConstancia = "";
   actualizarIndicadores();
   elementos.reconocimiento.hidden = true;
   crearPregunta();
+}
+
+function dibujarTextoCentrado(ctx, texto, x, y, maxWidth, lineHeight) {
+  const palabras = String(texto).split(" ");
+  let linea = "";
+  let posicionY = y;
+
+  palabras.forEach((palabra, indice) => {
+    const prueba = linea ? `${linea} ${palabra}` : palabra;
+    const ancho = ctx.measureText(prueba).width;
+
+    if (ancho > maxWidth && linea) {
+      ctx.fillText(linea, x, posicionY);
+      linea = palabra;
+      posicionY += lineHeight;
+    } else {
+      linea = prueba;
+    }
+
+    if (indice === palabras.length - 1) {
+      ctx.fillText(linea, x, posicionY);
+    }
+  });
+
+  return posicionY;
 }
 
 function descargarReconocimiento() {
   const nombre = obtenerNombreParticipante();
   const nivel = NIVELES[estado.nivel].nombre;
   const fecha = elementos.fechaConstancia.textContent || new Intl.DateTimeFormat("es-PE").format(new Date());
+  const codigo = estado.codigoConstancia || generarCodigoConstancia(nombre, estado.nivel);
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
 
@@ -415,35 +386,33 @@ function descargarReconocimiento() {
 
   ctx.fillStyle = "#102a43";
   ctx.font = "bold 54px Georgia";
-  ctx.fillText(nombre, canvas.width / 2, 465);
+  dibujarTextoCentrado(ctx, nombre, canvas.width / 2, 465, 980, 58);
 
   ctx.strokeStyle = "#d9e2ec";
   ctx.lineWidth = 3;
   ctx.beginPath();
-  ctx.moveTo(360, 500);
-  ctx.lineTo(1040, 500);
+  ctx.moveTo(360, 520);
+  ctx.lineTo(1040, 520);
   ctx.stroke();
 
   ctx.fillStyle = "#486581";
   ctx.font = "31px Arial";
-  ctx.fillText(`Por haber alcanzado el nivel ${nivel.toLocaleLowerCase("es")}`, canvas.width / 2, 590);
-  ctx.fillText("en el juego educativo \"Adivina la seña\".", canvas.width / 2, 640);
-  ctx.fillText(`Fecha: ${fecha}`, canvas.width / 2, 725);
+  ctx.fillText(`Por haber alcanzado el nivel ${nivel.toLocaleLowerCase("es")}`, canvas.width / 2, 610);
+  ctx.fillText("en el juego educativo \"Adivina la seña\".", canvas.width / 2, 660);
+  ctx.fillText(`Fecha: ${fecha}`, canvas.width / 2, 735);
+
+  ctx.fillStyle = "#0f766e";
+  ctx.font = "bold 26px Arial";
+  ctx.fillText(`Código: ${codigo}`, canvas.width / 2, 790);
 
   ctx.fillStyle = "#627d98";
   ctx.font = "24px Arial";
-  ctx.fillText("Este reconocimiento tiene finalidad educativa y motivacional.", canvas.width / 2, 825);
-  ctx.fillText("No constituye certificación oficial.", canvas.width / 2, 860);
+  ctx.fillText("Este reconocimiento tiene finalidad educativa y motivacional.", canvas.width / 2, 850);
+  ctx.fillText("No constituye certificación oficial.", canvas.width / 2, 885);
 
   const enlace = document.createElement("a");
-  const nombreArchivo = nombre
-    .toLocaleLowerCase("es")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "") || "participante";
-
-  enlace.download = `reconocimiento-adivina-la-sena-${nombreArchivo}.png`;
+  const nombreArchivo = normalizarTexto(nombre).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "participante";
+  enlace.download = `constancia-simbolica-adivina-la-sena-${nombreArchivo}.png`;
   enlace.href = canvas.toDataURL("image/png");
   enlace.click();
 }
@@ -484,6 +453,7 @@ elementos.nivel.addEventListener("change", () => {
   estado.racha = 0;
   estado.intentos = 0;
   estado.logrado = false;
+  estado.codigoConstancia = "";
   prepararBancoNivel();
   actualizarIndicadores();
   elementos.reconocimiento.hidden = true;
