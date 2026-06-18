@@ -2,15 +2,17 @@
 
 Este documento registra los criterios de reconocimiento de fuentes y créditos del repositorio Juegos Interactivos Accesibles.
 
-El proyecto es desarrollado y organizado por Gabriel Berrospi como recurso educativo digital orientado a la accesibilidad, la inclusión educativa y la atención a la diversidad.
+El proyecto es desarrollado y organizado por Gabriel Berrospi como recurso educativo digital personal orientado a la accesibilidad, la inclusión educativa y la atención a la diversidad.
 
-Los textos, estructuras de organización, criterios de presentación, adaptación digital y diseño general del repositorio corresponden al trabajo realizado para este proyecto, salvo que se indique expresamente una fuente externa.
+La organización del repositorio, la estructura de navegación, los criterios de presentación, la adaptación digital y el diseño general corresponden al trabajo realizado para este proyecto personal, salvo que se indique expresamente una fuente externa.
 
-Cuando se incorporen imágenes, pictogramas, íconos, sonidos, videos, fuentes tipográficas, fragmentos de texto, materiales institucionales u otros recursos elaborados por terceros, deberá consignarse su procedencia y respetarse sus condiciones de uso.
+## Recursos externos
 
-En caso de utilizar material institucional del CREBE "Señor de los Milagros" - Ucayali, este deberá conservar su identificación correspondiente y usarse únicamente dentro del marco autorizado para fines educativos, formativos o de orientación a la comunidad.
+Cuando se incorporen imágenes, pictogramas, íconos, sonidos, videos, fuentes tipográficas, fragmentos de texto, materiales educativos o recursos elaborados por terceros, deberá consignarse su procedencia y respetarse sus condiciones de uso.
 
-Si se emplean materiales provenientes de entidades públicas, repositorios abiertos o bancos de recursos gratuitos, deberá mantenerse la referencia a la fuente original cuando corresponda.
+Si se emplean materiales provenientes de entidades públicas, repositorios abiertos, bancos de recursos gratuitos, plataformas educativas o autores externos, deberá mantenerse la referencia a la fuente original cuando corresponda.
+
+## Datos recomendados para registrar una fuente
 
 Se recomienda registrar cada recurso externo con los siguientes datos:
 
@@ -21,8 +23,8 @@ Se recomienda registrar cada recurso externo con los siguientes datos:
 - Fecha de incorporación al repositorio.
 - Adaptación realizada, si corresponde.
 
-La ausencia de una referencia clara debe resolverse antes de publicar el recurso dentro de la plataforma. Si no existe seguridad sobre el permiso de uso, el material no debe incorporarse o debe reemplazarse por un recurso propio, institucionalmente autorizado o de licencia compatible.
+La ausencia de una referencia clara debe resolverse antes de publicar el recurso dentro del proyecto. Si no existe seguridad sobre el permiso de uso, el material no debe incorporarse o debe reemplazarse por un recurso propio, autorizado o de licencia compatible.
 
-Créditos generales del proyecto:
+## Créditos generales del proyecto
 
-Juegos Interactivos Accesibles. Desarrollado por Gabriel Berrospi. Recurso educativo digital de apoyo para la accesibilidad, la inclusión educativa y la atención a la diversidad.
+Juegos Interactivos Accesibles. Proyecto desarrollado y organizado por Gabriel Berrospi como recurso educativo digital personal para la accesibilidad, la inclusión educativa y la atención a la diversidad.
