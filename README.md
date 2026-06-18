@@ -1,12 +1,12 @@
 # Juegos Interactivos Accesibles
 
-Juegos Interactivos Accesibles es un repositorio educativo orientado al diseño y organización de actividades digitales de apoyo para estudiantes, docentes, familias y comunidad educativa vinculada a la atención a la diversidad.
+Juegos Interactivos Accesibles es un repositorio educativo que desarrollo como proyecto personal para diseñar y organizar actividades digitales de apoyo dirigidas a estudiantes, docentes, familias y personas interesadas en la atención a la diversidad.
 
-El proyecto busca ofrecer recursos sencillos, visuales y funcionales que favorezcan la participación, la práctica guiada y el aprendizaje mediante actividades interactivas. Su desarrollo se enmarca en una finalidad pedagógica, accesible y de apoyo institucional, sin reemplazar la intervención profesional, la planificación docente ni los ajustes razonables que cada estudiante pueda requerir.
+El proyecto busca ofrecer recursos sencillos, visuales y funcionales que favorezcan la participación, la práctica guiada y el aprendizaje mediante actividades interactivas. Su desarrollo tiene una finalidad pedagógica, accesible y no comercial, sin reemplazar la intervención profesional, la planificación docente ni los ajustes razonables que cada estudiante pueda requerir.
 
 ## Finalidad del proyecto
 
-La finalidad principal es reunir juegos y actividades digitales que puedan ser utilizados como recursos complementarios en espacios educativos, familiares o institucionales. Estos materiales pueden apoyar procesos de reconocimiento visual, asociación, memoria, atención, comunicación, comprensión de consignas, práctica de vocabulario, exploración de conceptos básicos y participación activa.
+La finalidad principal es reunir juegos y actividades digitales que puedan utilizarse como recursos complementarios en espacios educativos, familiares o formativos. Estos materiales pueden apoyar procesos de reconocimiento visual, asociación, memoria, atención, comunicación, comprensión de consignas, práctica de vocabulario, exploración de conceptos básicos y participación activa.
 
 El repositorio puede ampliarse progresivamente con nuevos juegos, niveles de dificultad, instrucciones para docentes, materiales descargables y orientaciones de uso pedagógico.
 
@@ -50,22 +50,22 @@ juegos-interactivos-accesibles/
     ├── alcance-pedagogico.md
     ├── fuentes-y-creditos.md
     ├── uso-permitido.md
-    ├── respaldo-institucional.md
+    ├── autoria-y-contexto.md
     ├── estructura-del-proyecto.md
     └── bitacora-de-cambios.md
 ```
 
-La estructura puede variar según el avance real del proyecto. Los archivos ubicados en `docs` cumplen la función de respaldo documental, explicación pedagógica y organización institucional.
+La estructura puede variar según el avance real del proyecto. Los archivos ubicados en `docs` cumplen la función de respaldo pedagógico, autoral, técnico y organizativo.
 
 ## Autoría y desarrollo
 
-Proyecto desarrollado y organizado por Gabriel Berrospi como recurso educativo digital orientado a la accesibilidad, la inclusión educativa y el fortalecimiento de materiales interactivos para la atención a la diversidad.
+Proyecto desarrollado y organizado por Gabriel Berrospi como recurso educativo digital personal orientado a la accesibilidad, la inclusión educativa y el fortalecimiento de materiales interactivos para la atención a la diversidad.
 
-El proyecto puede vincularse al trabajo de apoyo institucional del CREBE "Señor de los Milagros" - Ucayali, cuando su uso sea coordinado dentro de acciones educativas, formativas o de orientación a la comunidad.
+Cuando el recurso sea utilizado dentro de acciones educativas del CREBE "Señor de los Milagros" - Ucayali u otra institución, dicha referencia debe entenderse como contexto de uso o coordinación, no como transferencia de autoría ni titularidad del proyecto digital.
 
 ## Licencia y uso
 
-El código del repositorio se encuentra bajo la licencia indicada en el archivo `LICENSE`. Los materiales, textos, imágenes, logos institucionales o recursos externos que se incorporen deben respetar su fuente, autoría y condiciones de uso correspondientes.
+El código del repositorio se encuentra bajo la licencia indicada en el archivo `LICENSE`. Los materiales, textos, imágenes, logos o recursos externos que se incorporen deben respetar su fuente, autoría y condiciones de uso correspondientes.
 
 Toda reutilización educativa debe conservar los créditos del proyecto, la referencia al autor responsable y la identificación de las fuentes utilizadas.
 
@@ -84,4 +84,4 @@ Las siguientes etapas pueden incluir:
 
 ## Contacto
 
-Para observaciones, sugerencias o reporte de errores, se recomienda utilizar los canales institucionales o personales que el responsable del proyecto determine en la versión publicada del recurso.
+Para observaciones, sugerencias o reporte de errores, se recomienda utilizar los canales personales o de contacto definidos en la versión publicada del recurso.
