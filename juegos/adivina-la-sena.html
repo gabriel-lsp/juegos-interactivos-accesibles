@@ -35,12 +35,7 @@
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:linear-gradient(180deg,#f0f4f8 0%,#ffffff 52%,#f7fafc 100%);
-      color:var(--gris-900);
-    }
+    body{ margin:0; font-family:Arial, Helvetica, sans-serif; background:linear-gradient(180deg,#f0f4f8 0%,#ffffff 52%,#f7fafc 100%); color:var(--gris-900); }
     a{ color:inherit; }
     button,input,select{ font:inherit; }
     .salto-contenido{ position:absolute; left:-999px; top:12px; background:var(--gris-900); color:var(--blanco); padding:10px 14px; border-radius:10px; z-index:50; }
@@ -115,10 +110,14 @@
     .constancia .aclaracion{ margin-top:18px; color:#627d98; font-size:.88rem; }
     .botones-reconocimiento{ display:flex; gap:10px; flex-wrap:wrap; }
     footer{ background:#082f49; color:#ffffff; padding:36px 18px; }
-    .footer-contenido{ max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1.4fr .8fr; gap:28px; }
+    .footer-contenido{ max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1.2fr 1fr 1.25fr; gap:32px; }
     .footer-bloque h2,.footer-bloque h3{ margin:0 0 10px; font-size:1.05rem; }
     .footer-bloque p{ margin:0; color:rgba(255,255,255,.82); line-height:1.65; font-size:.95rem; }
-    .footer-bloque a{ color:#ffffff; font-weight:800; }
+    .footer-bloque a{ color:rgba(255,255,255,.92); text-decoration:underline; text-underline-offset:3px; font-weight:800; }
+    .footer-marca{ display:flex; align-items:flex-start; gap:16px; }
+    .footer-logo{ width:72px; max-width:72px; height:auto; object-fit:contain; display:block; flex-shrink:0; }
+    .footer-final{ max-width:1120px; margin:28px auto 0; padding-top:18px; border-top:1px solid rgba(255,255,255,.22); color:rgba(255,255,255,.9); font-size:.92rem; line-height:1.6; }
+    .footer-final p{ margin:0; }
 
     @media print{
       body{ background:#ffffff; }
@@ -127,8 +126,8 @@
       .reconocimiento{ display:block !important; border:0; box-shadow:none; }
       .constancia{ min-height:90vh; display:flex; flex-direction:column; justify-content:center; }
     }
-    @media (max-width:900px){ .configuracion,.zona-juego,.criterios,.footer-contenido{ grid-template-columns:1fr; } }
-    @media (max-width:640px){ .cabecera{ padding-bottom:125px; } .navegacion{ align-items:flex-start; flex-direction:column; } .portada{ margin-top:48px; } .bloque-institucional{ align-items:flex-start; } .logo-crebe,.logo-fallback{ width:72px; height:72px; } .texto-institucional{ padding-left:16px; } .nombre-institucional{ font-size:1.05rem; } .detalle-institucional{ font-size:.92rem; } .panel-juego{ padding:26px 18px 32px; } .panel-encabezado{ display:block; } .indicadores{ grid-template-columns:1fr; } .boton{ width:100%; } .constancia{ padding:22px 16px; } .constancia h3{ font-size:1.45rem; } .constancia .nombre{ font-size:1.35rem; } }
+    @media (max-width:900px){ .configuracion,.zona-juego,.criterios,.footer-contenido{ grid-template-columns:1fr; } .footer-marca{ align-items:center; } }
+    @media (max-width:640px){ .cabecera{ padding-bottom:125px; } .navegacion{ align-items:flex-start; flex-direction:column; } .portada{ margin-top:48px; } .bloque-institucional{ align-items:flex-start; } .logo-crebe,.logo-fallback{ width:72px; height:72px; } .texto-institucional{ padding-left:16px; } .nombre-institucional{ font-size:1.05rem; } .detalle-institucional{ font-size:.92rem; } .panel-juego{ padding:26px 18px 32px; } .panel-encabezado{ display:block; } .indicadores{ grid-template-columns:1fr; } .boton{ width:100%; } .constancia{ padding:22px 16px; } .constancia h3{ font-size:1.45rem; } .constancia .nombre{ font-size:1.35rem; } .footer-logo{ width:60px; max-width:60px; } }
   </style>
 </head>
 
@@ -250,14 +249,40 @@
 
   <footer>
     <div class="footer-contenido">
-      <div class="footer-bloque">
-        <h2>Adivina la seña</h2>
-        <p>Juego digital para fortalecer la asociación entre palabra escrita e imagen de seña en Lengua de Señas Peruana.</p>
+      <div class="footer-bloque footer-marca">
+        <img class="footer-logo" src="https://gabriel-lsp.github.io/banco-digital-braille/logo-crebe.png" alt="Logo del CREBE Señor de los Milagros - Ucayali">
+        <div>
+          <h2>Adivina la seña</h2>
+          <p>Juego digital para fortalecer la asociación entre palabra escrita e imagen de seña en Lengua de Señas Peruana.</p>
+        </div>
       </div>
       <div class="footer-bloque">
-        <h3>Proyecto educativo</h3>
-        <p>Desarrollado por Gabriel Bermúdez con apoyo institucional del CREBE "Señor de los Milagros" - Ucayali.</p>
+        <h2>Enlaces</h2>
+        <p>
+          <a href="https://crebeucayali.weebly.com/">Inicio principal</a><br>
+          <a href="../contacto.html">Contacto</a><br>
+          <a href="https://gabriel-lsp.github.io/banco-digital-accesible/">Banco Digital Accesible</a><br>
+          <a href="https://gabriel-lsp.github.io/materiales-educativos-accesibles/">Material Educativo Accesible</a><br>
+          <a href="https://gabriel-lsp.github.io/juegos-interactivos-accesibles/">Juegos Educativos Accesibles</a><br>
+          <a href="https://gabriel-lsp.github.io/capacitaciones-crebe-ucayali/">Capacitaciones CREBE</a><br>
+          <a href="https://gabriel-lsp.github.io/noti-inclusivos/">Noti Inclusivos</a>
+        </p>
       </div>
+      <div class="footer-bloque">
+        <h2>Contacto CREBE</h2>
+        <p>
+          CREBE "Señor de los Milagros" - Ucayali<br>
+          Teléfono: pendiente<br>
+          Correo: senordelosmilagroscrebe@gmail.com<br>
+          Horario: lunes a viernes, 8:00 a.m. - 12:00 p.m.<br>
+          Dirección: pendiente<br>
+          <a href="https://www.facebook.com/CREBESM" target="_blank" rel="noopener noreferrer">Facebook</a><br>
+          TikTok: pendiente
+        </p>
+      </div>
+    </div>
+    <div class="footer-final">
+      <p>© 2026 Gabriel Berrospi. Desarrollo original. Uso institucional autorizado al CREBE "Señor de los Milagros" - Ucayali.</p>
     </div>
   </footer>
 
