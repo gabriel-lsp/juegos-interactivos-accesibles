@@ -1,7 +1,7 @@
 "use strict";
 
-const URL_BANCO_LSP = "https://gabriel-lsp.github.io/banco-digital-lsp/datos/diccionario_lsp.json";
-const URL_IMAGENES_LSP = "https://gabriel-lsp.github.io/banco-digital-lsp/";
+const URL_BANCO_LSP = "https://gabriel-lsp.github.io/banco-digital-accesible/lsp/datos/diccionario_lsp.json";
+const URL_IMAGENES_LSP = "https://gabriel-lsp.github.io/banco-digital-accesible/lsp/";
 
 const NIVELES = {
   basico: {
@@ -87,7 +87,12 @@ function formatearTexto(texto) {
 
 function obtenerUrlImagen(item) {
   const archivo = String(item.archivo_imagen || "").trim();
-  return archivo.startsWith("http") ? archivo : URL_IMAGENES_LSP + archivo;
+
+  if (!archivo) {
+    return "";
+  }
+
+  return archivo.startsWith("http") ? archivo : URL_IMAGENES_LSP + archivo.replace(/^\.\//, "");
 }
 
 function mezclar(lista) {
@@ -114,7 +119,6 @@ function perteneceANivel(item, nivel) {
   const palabra = normalizarTexto(item.palabra);
   const descripcion = normalizarTexto(item.descripcion);
   const configuracion = NIVELES[nivel];
-  const longitudDescripcion = descripcion.length;
   const categorias = (configuracion.categorias || []).map(normalizarTexto);
   const palabras = (configuracion.palabras || []).map(normalizarTexto);
 
@@ -127,14 +131,14 @@ function perteneceANivel(item, nivel) {
   }
 
   if (nivel === "basico") {
-    return longitudDescripcion <= 115 && !categoria.includes("adjetivos");
+    return descripcion.length <= 115 && !categoria.includes("adjetivos");
   }
 
   if (nivel === "intermedio") {
-    return longitudDescripcion > 115 && longitudDescripcion <= 210;
+    return descripcion.length > 115 && descripcion.length <= 210;
   }
 
-  return longitudDescripcion > 210 || categoria.includes("adjetivos");
+  return descripcion.length > 210 || categoria.includes("adjetivos");
 }
 
 function prepararBancoNivel() {
@@ -180,7 +184,7 @@ function crearPregunta() {
   elementos.mensaje.className = "mensaje";
 
   const correcta = mezclar(estado.bancoNivel)[0];
-  const alternativas = mezclar([correcta, ...obtenerDistractores(correcta)]);
+  const alternativas = mezclar([correcta, ...obtenerDistractores(correcta)]).slice(0, 5);
 
   estado.preguntaActual = correcta;
   elementos.imagen.hidden = false;
@@ -418,10 +422,10 @@ function descargarReconocimiento() {
 }
 
 async function cargarBanco() {
-  elementos.mensaje.textContent = "Cargando banco de señas...";
+  elementos.mensaje.textContent = "Cargando banco de señas desde BDA...";
 
   try {
-    const respuesta = await fetch(URL_BANCO_LSP);
+    const respuesta = await fetch(URL_BANCO_LSP, { cache: "no-store" });
 
     if (!respuesta.ok) {
       throw new Error(`Error HTTP ${respuesta.status}`);
@@ -434,12 +438,12 @@ async function cargarBanco() {
     }
 
     estado.banco = limpiarDuplicadosPorPalabra(datos).filter((item) => item.archivo_imagen && item.palabra);
-    elementos.mensaje.textContent = "Banco de señas preparado. Seleccione un nivel e inicie el juego.";
+    elementos.mensaje.textContent = "Banco de señas preparado desde BDA. Seleccione un nivel e inicie el juego.";
     elementos.mensaje.className = "mensaje";
   } catch (error) {
-    console.warn("No fue posible cargar el banco completo. Se usará una muestra básica.", error);
+    console.warn("No fue posible cargar el banco completo desde BDA. Se usará una muestra básica.", error);
     estado.banco = limpiarDuplicadosPorPalabra(datosFallback);
-    elementos.mensaje.textContent = "No fue posible cargar el banco completo. Se usará una muestra básica para probar el juego.";
+    elementos.mensaje.textContent = "No fue posible cargar el banco completo desde BDA. Se usará una muestra básica para probar el juego.";
     elementos.mensaje.className = "mensaje incorrecto";
   }
 
