@@ -3,85 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Acceso estandarizado al juego Adivina la seña con navegación institucional.">
-  <title>Adivina la seña | JIA</title>
-  <style>
-    html,body{margin:0;padding:0;background:#f0f4f8;font-family:Arial,Helvetica,sans-serif;}
-    .marco-juego{display:block;width:100%;min-height:100vh;border:0;background:#ffffff;}
-    .aviso-carga{padding:18px;text-align:center;color:#486581;}
-  </style>
+  <meta http-equiv="refresh" content="0; url=adivina-la-sena/">
+  <link rel="canonical" href="https://gabriel-lsp.github.io/juegos-interactivos-accesibles/juegos/adivina-la-sena/">
+  <title>Redirigiendo a Adivina la seña</title>
 </head>
 <body>
-  <div class="aviso-carga" id="aviso-carga">Cargando juego...</div>
-  <iframe id="marco-juego" class="marco-juego" src="adivina-la-sena.html" title="Adivina la seña" loading="eager"></iframe>
-  <script>
-    (function(){
-      const marco = document.getElementById('marco-juego');
-      const aviso = document.getElementById('aviso-carga');
-      const contactoUrl = 'https://gabriel-lsp.github.io/accesos-complementarios/contacto.html';
-
-      function ajustarAltura(){
-        try{
-          const doc = marco.contentDocument || marco.contentWindow.document;
-          const alto = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight, window.innerHeight);
-          marco.style.height = alto + 'px';
-        }catch(error){
-          marco.style.height = '100vh';
-        }
-      }
-
-      function estandarizarCabecera(){
-        try{
-          const doc = marco.contentDocument || marco.contentWindow.document;
-          aviso.style.display = 'none';
-
-          const nav = doc.querySelector('.navegacion');
-          const enlaceVolver = nav ? nav.querySelector('a.enlace-cabecera[href="../index.html"]') : null;
-          if(!nav || !enlaceVolver){
-            ajustarAltura();
-            return;
-          }
-
-          let contenedor = nav.querySelector('.enlaces-cabecera');
-          if(!contenedor){
-            contenedor = doc.createElement('div');
-            contenedor.className = 'enlaces-cabecera';
-            enlaceVolver.replaceWith(contenedor);
-            contenedor.appendChild(enlaceVolver);
-          }
-
-          enlaceVolver.textContent = 'Volver a JIA';
-          enlaceVolver.setAttribute('aria-label','Volver a Juegos Interactivos Accesibles');
-
-          let enlaceContacto = contenedor.querySelector('a[href*="accesos-complementarios/contacto.html"]');
-          if(!enlaceContacto){
-            enlaceContacto = doc.createElement('a');
-            enlaceContacto.className = 'enlace-cabecera';
-            enlaceContacto.href = contactoUrl;
-            contenedor.appendChild(enlaceContacto);
-          }
-          enlaceContacto.textContent = 'Contacto Institucional';
-
-          if(!doc.getElementById('estandar-cabecera-jia')){
-            const estilo = doc.createElement('style');
-            estilo.id = 'estandar-cabecera-jia';
-            estilo.textContent = '.enlaces-cabecera{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px}@media(max-width:640px){.enlaces-cabecera{justify-content:flex-start}}';
-            doc.head.appendChild(estilo);
-          }
-
-          ajustarAltura();
-        }catch(error){
-          aviso.textContent = 'El juego se está cargando. Si no aparece, recarga la página.';
-        }
-      }
-
-      marco.addEventListener('load', function(){
-        estandarizarCabecera();
-        setTimeout(ajustarAltura, 400);
-        setTimeout(ajustarAltura, 1200);
-      });
-      window.addEventListener('resize', ajustarAltura);
-    })();
-  </script>
+  <p>Redirigiendo al juego Adivina la seña...</p>
+  <p><a href="adivina-la-sena/">Ir al juego Adivina la seña</a></p>
 </body>
 </html>
