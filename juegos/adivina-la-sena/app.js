@@ -1,48 +1,52 @@
-(async function(){
-  const estado = document.getElementById("estado-carga");
-  const iframe = document.getElementById("juego");
-  const fuenteOriginal = "https://raw.githubusercontent.com/gabriel-lsp/juegos-interactivos-accesibles/03ec7056d98805e84ff063d5b5df240c2b16ba6b/juegos/adivina-la-sena.html";
-  const contacto = "https://gabriel-lsp.github.io/accesos-complementarios/contacto.html";
-  const estilosCabecera = ".enlaces-cabecera{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px}.franja-info{display:none!important}@media(max-width:640px){.enlaces-cabecera{justify-content:flex-start}}";
+"use strict";
 
-  function ajustarAltura(){
-    try{
-      const doc = iframe.contentDocument || iframe.contentWindow.document;
-      const alto = Math.max(doc.body.scrollHeight, doc.documentElement.scrollHeight, window.innerHeight);
-      iframe.style.height = alto + "px";
-    }catch(error){
-      iframe.style.height = "100vh";
-    }
-  }
+const URL_BANCO_LSP = "https://gabriel-lsp.github.io/banco-digital-accesible/lsp/datos/diccionario_lsp.json";
+const URL_IMAGENES_LSP = "https://gabriel-lsp.github.io/banco-digital-accesible/lsp/";
 
-  function prepararHtml(html){
-    return html
-      .replace('<a href="../index.html" class="enlace-cabecera">Volver</a>', '<div class="enlaces-cabecera"><a href="../../index.html" class="enlace-cabecera">Volver a JIA</a><a href="' + contacto + '" class="enlace-cabecera">Contacto Institucional</a></div>')
-      .replace(/<div class="franja-info"><span class="chip">5 alternativas<\/span><span class="chip">Niveles progresivos<\/span><span class="chip">Reconocimiento simbólico<\/span><\/div>/, "")
-      .replace("</style>", estilosCabecera + "</style>");
-  }
+const NIVELES = {
+  basico:{nombre:"Básico",clave:"BAS",meta:5,categorias:["familia","alimentos","colores","numeros","números","contexto escolar","saludos","animales","cuerpo humano"],palabras:["agua","comer","casa","mamá","mama","papá","papa","niño","niña","profesor","colegio","escuela","rojo","azul","amarillo","verde"]},
+  intermedio:{nombre:"Intermedio",clave:"INT",meta:8,categorias:["profesiones","instituciones y lugares","países y ciudades","paises y ciudades","dias de la semana","meses","verbos","emociones","primeros auxilios"]},
+  avanzado:{nombre:"Avanzado",clave:"AVA",meta:10,categorias:["adjetivos","pronombres","preposiciones","conectores","valores","tecnologia","tecnología","secuencias","himno nacional","padre nuestro","ave maria","ave maría"]}
+};
 
-  try{
-    const respuesta = await fetch(fuenteOriginal, { cache:"no-store" });
+const datosFallback = [
+  {id:"demo-1",categoria:"familia",palabra:"mamá",descripcion:"Seña de uso frecuente en contexto familiar.",archivo_imagen:"imagenes/familia/mama.png"},
+  {id:"demo-2",categoria:"familia",palabra:"papá",descripcion:"Seña de uso frecuente en contexto familiar.",archivo_imagen:"imagenes/familia/papa.png"},
+  {id:"demo-3",categoria:"alimentos",palabra:"agua",descripcion:"Seña de uso cotidiano.",archivo_imagen:"imagenes/alimentos/agua.png"},
+  {id:"demo-4",categoria:"colores",palabra:"azul",descripcion:"Seña de uso común en actividades escolares.",archivo_imagen:"imagenes/colores/azul.png"},
+  {id:"demo-5",categoria:"contexto escolar",palabra:"colegio",descripcion:"Seña vinculada al contexto educativo.",archivo_imagen:"imagenes/contexto-escolar/colegio.png"}
+];
 
-    if(!respuesta.ok){
-      throw new Error("No se pudo cargar la versión original del juego.");
-    }
+const elementos = {
+  nombre:document.querySelector("#nombre-participante"),nivel:document.querySelector("#nivel-juego"),iniciar:document.querySelector("#iniciar-juego"),imagen:document.querySelector("#imagen-sena"),categoria:document.querySelector("#categoria-sena"),pista:document.querySelector("#pista-sena"),alternativas:document.querySelector("#alternativas"),mensaje:document.querySelector("#mensaje"),racha:document.querySelector("#racha"),meta:document.querySelector("#meta"),preguntas:document.querySelector("#preguntas"),siguiente:document.querySelector("#siguiente"),reiniciar:document.querySelector("#reiniciar"),reconocimiento:document.querySelector("#reconocimiento"),nombreConstancia:document.querySelector("#nombre-constancia"),nivelConstancia:document.querySelector("#nivel-constancia"),fechaConstancia:document.querySelector("#fecha-constancia"),descargarReconocimiento:document.querySelector("#descargar-reconocimiento"),imprimirReconocimiento:document.querySelector("#imprimir-reconocimiento")
+};
 
-    const html = prepararHtml(await respuesta.text());
-    iframe.removeAttribute("hidden");
-    estado.style.display = "none";
-    iframe.srcdoc = html;
+const estado = {banco:[],bancoNivel:[],nivel:"basico",preguntaActual:null,respuestaBloqueada:false,racha:0,intentos:0,logrado:false,codigoConstancia:""};
 
-    iframe.addEventListener("load", function(){
-      ajustarAltura();
-      setTimeout(ajustarAltura, 500);
-      setTimeout(ajustarAltura, 1500);
-    });
+function normalizarTexto(texto){return String(texto||"").toLocaleLowerCase("es").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[_-]/g," ").replace(/\s+/g," ").trim();}
+function formatearTexto(texto){return String(texto||"").replace(/[_-]/g," ").replace(/\s+/g," ").trim().replace(/\b\w/g,(letra)=>letra.toLocaleUpperCase("es"));}
+function mezclar(lista){return [...lista].sort(()=>Math.random()-.5);}
+function obtenerUrlImagen(item){const archivo=String(item.archivo_imagen||"").trim();return archivo.startsWith("http")?archivo:URL_IMAGENES_LSP+archivo.replace(/^\.\//,"");}
+function limpiarDuplicadosPorPalabra(lista){const vistos=new Set();return lista.filter((item)=>{const clave=normalizarTexto(item.palabra);if(!clave||vistos.has(clave)){return false;}vistos.add(clave);return true;});}
+function perteneceANivel(item,nivel){const categoria=normalizarTexto(item.categoria);const palabra=normalizarTexto(item.palabra);const descripcion=normalizarTexto(item.descripcion);const config=NIVELES[nivel];const categorias=(config.categorias||[]).map(normalizarTexto);const palabras=(config.palabras||[]).map(normalizarTexto);if(palabras.includes(palabra)){return true;}if(categorias.some((cat)=>categoria.includes(cat))){return true;}if(nivel==="basico"){return descripcion.length<=115&&!categoria.includes("adjetivos");}if(nivel==="intermedio"){return descripcion.length>115&&descripcion.length<=210;}return descripcion.length>210||categoria.includes("adjetivos");}
+function actualizarIndicadores(){const config=NIVELES[estado.nivel];elementos.racha.textContent=String(estado.racha);elementos.meta.textContent=String(config.meta);elementos.preguntas.textContent=String(estado.intentos);}
+function prepararBancoNivel(){const candidatos=estado.banco.filter((item)=>perteneceANivel(item,estado.nivel));const base=candidatos.length>=5?candidatos:estado.banco;estado.bancoNivel=limpiarDuplicadosPorPalabra(base).filter((item)=>item.archivo_imagen&&item.palabra);}
+function obtenerDistractores(correcta){const palabraCorrecta=normalizarTexto(correcta.palabra);const mismaCategoria=estado.bancoNivel.filter((item)=>normalizarTexto(item.categoria)===normalizarTexto(correcta.categoria)&&normalizarTexto(item.palabra)!==palabraCorrecta);const mismoNivel=estado.bancoNivel.filter((item)=>normalizarTexto(item.palabra)!==palabraCorrecta);const todos=estado.banco.filter((item)=>item.palabra&&normalizarTexto(item.palabra)!==palabraCorrecta);return limpiarDuplicadosPorPalabra([...mezclar(mismaCategoria),...mezclar(mismoNivel),...mezclar(todos)]).slice(0,4);}
 
-    window.addEventListener("resize", ajustarAltura);
-  }catch(error){
-    console.error(error);
-    estado.innerHTML = 'No se pudo cargar el juego. <a class="enlace-carga" href="../../index.html">Volver a JIA</a>';
-  }
-})();
+async function cargarBanco(){elementos.mensaje.textContent="Cargando banco de señas...";try{const respuesta=await fetch(URL_BANCO_LSP,{cache:"no-store"});if(!respuesta.ok){throw new Error("No se pudo cargar el banco.");}const datos=await respuesta.json();estado.banco=Array.isArray(datos)?datos:datosFallback;}catch(error){console.error(error);estado.banco=datosFallback;elementos.mensaje.textContent="Se usará una muestra básica de demostración por dificultad de carga.";}}
+
+function crearPregunta(){if(estado.bancoNivel.length<5){elementos.mensaje.textContent="No hay suficientes señas disponibles para formar cinco alternativas.";elementos.mensaje.className="mensaje incorrecto";return;}estado.respuestaBloqueada=false;elementos.siguiente.disabled=true;elementos.reconocimiento.hidden=true;elementos.mensaje.textContent="Elige la palabra que corresponde a la seña mostrada.";elementos.mensaje.className="mensaje";const correcta=mezclar(estado.bancoNivel)[0];const alternativas=mezclar([correcta,...obtenerDistractores(correcta)]).slice(0,5);estado.preguntaActual=correcta;elementos.imagen.hidden=false;elementos.imagen.src=obtenerUrlImagen(correcta);elementos.imagen.alt="Seña en Lengua de Señas Peruana. Seleccione la palabra correcta entre las alternativas.";elementos.categoria.textContent=formatearTexto(correcta.categoria||"Lengua de Señas Peruana");elementos.pista.textContent=`Nivel ${NIVELES[estado.nivel].nombre}. Observe la seña y seleccione una alternativa.`;elementos.alternativas.innerHTML="";alternativas.forEach((item)=>{const boton=document.createElement("button");boton.type="button";boton.className="alternativa";boton.textContent=formatearTexto(item.palabra);boton.dataset.respuesta=normalizarTexto(item.palabra);boton.addEventListener("click",()=>evaluarRespuesta(boton));elementos.alternativas.appendChild(boton);});}
+function evaluarRespuesta(boton){if(estado.respuestaBloqueada||!estado.preguntaActual){return;}estado.respuestaBloqueada=true;estado.intentos+=1;const respuesta=boton.dataset.respuesta;const correcta=normalizarTexto(estado.preguntaActual.palabra);[...elementos.alternativas.querySelectorAll(".alternativa")].forEach((opcion)=>{opcion.disabled=true;if(opcion.dataset.respuesta===correcta){opcion.classList.add("correcta");}});if(respuesta===correcta){estado.racha+=1;boton.classList.add("correcta");elementos.mensaje.textContent=`Correcto. Mantienes una racha de ${estado.racha} respuesta${estado.racha===1?"":"s"} correcta${estado.racha===1?"":"s"}.`;elementos.mensaje.className="mensaje correcto";if(estado.racha>=NIVELES[estado.nivel].meta){estado.logrado=true;elementos.siguiente.disabled=true;mostrarReconocimiento();}else{elementos.siguiente.disabled=false;}}else{estado.racha=0;boton.classList.add("incorrecta");elementos.mensaje.textContent=`Respuesta incorrecta. La opción correcta era "${formatearTexto(estado.preguntaActual.palabra)}". La racha vuelve a cero.`;elementos.mensaje.className="mensaje incorrecto";elementos.siguiente.disabled=false;}actualizarIndicadores();}
+function obtenerNombreParticipante(){return elementos.nombre.value.trim()||"Participante";}
+function generarCodigoConstancia(nombre,nivel){const fecha=new Date();const sello=[fecha.getFullYear(),String(fecha.getMonth()+1).padStart(2,"0"),String(fecha.getDate()).padStart(2,"0")].join("");const aleatorio=Math.random().toString(36).slice(2,6).toUpperCase();return `JIA-LSP-${NIVELES[nivel].clave}-${sello}-${aleatorio}`;}
+function mostrarReconocimiento(){const config=NIVELES[estado.nivel];const nombre=obtenerNombreParticipante();const fecha=new Intl.DateTimeFormat("es-PE",{day:"2-digit",month:"long",year:"numeric"}).format(new Date());estado.codigoConstancia=generarCodigoConstancia(nombre,estado.nivel);elementos.nombreConstancia.textContent=nombre;elementos.nivelConstancia.textContent=`nivel ${config.nombre.toLocaleLowerCase("es")}`;elementos.fechaConstancia.textContent=fecha;elementos.reconocimiento.hidden=false;elementos.mensaje.textContent=`Logro alcanzado: completaste el nivel ${config.nombre}. Código: ${estado.codigoConstancia}.`;elementos.mensaje.className="mensaje correcto";}
+async function iniciarJuego(){estado.nivel=elementos.nivel.value;estado.racha=0;estado.intentos=0;estado.logrado=false;estado.preguntaActual=null;elementos.reconocimiento.hidden=true;actualizarIndicadores();if(estado.banco.length===0){await cargarBanco();}prepararBancoNivel();crearPregunta();}
+function reiniciarJuego(){estado.racha=0;estado.intentos=0;estado.logrado=false;estado.preguntaActual=null;elementos.reconocimiento.hidden=true;elementos.alternativas.innerHTML="";elementos.imagen.hidden=true;elementos.imagen.removeAttribute("src");elementos.categoria.textContent="Esperando inicio";elementos.pista.textContent="Presiona iniciar juego para comenzar.";elementos.mensaje.textContent="Elige iniciar para cargar las primeras señas.";elementos.mensaje.className="mensaje";elementos.siguiente.disabled=true;actualizarIndicadores();}
+function descargarReconocimiento(){window.print();}
+
+if(elementos.iniciar){elementos.iniciar.addEventListener("click",iniciarJuego);}
+if(elementos.siguiente){elementos.siguiente.addEventListener("click",crearPregunta);}
+if(elementos.reiniciar){elementos.reiniciar.addEventListener("click",reiniciarJuego);}
+if(elementos.descargarReconocimiento){elementos.descargarReconocimiento.addEventListener("click",descargarReconocimiento);}
+if(elementos.imprimirReconocimiento){elementos.imprimirReconocimiento.addEventListener("click",()=>window.print());}
+actualizarIndicadores();
