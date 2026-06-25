@@ -5,13 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Plataforma de juegos interactivos accesibles para practicar Lengua de Señas Peruana y sistema Braille.">
   <title>Juegos Interactivos Accesibles</title>
-  <link rel="stylesheet" href="estilos.css?v=2">
+  <link rel="stylesheet" href="estilos.css?v=3">
+    <style>
+    .grid-materiales{grid-template-columns:repeat(3,1fr);}
+    .tarjeta-material h3{min-height:48px;}
+    .tarjeta-material.en-construccion{background:#ffffff;border-color:#d9e2ec;opacity:.92;}
+    .estado-material.construccion{background:#fff8e5;color:#725918;border:1px solid #ebd599;}
+    .enlace-material.deshabilitado{background:#d9e2ec;color:#486581;cursor:not-allowed;pointer-events:none;}
+    .enlaces-cabecera{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px;}
+    .footer-marca{display:flex;align-items:flex-start;gap:16px;}
+    .footer-logo{width:72px;max-width:72px;height:auto;object-fit:contain;display:block;flex-shrink:0;}
+    .footer-contenido{grid-template-columns:1.2fr 1fr 1.25fr;gap:32px;}
+    .footer-bloque a{text-decoration:underline;text-underline-offset:3px;}
+    .patron-portada {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+    
+        background-image: url("patron-shipibo.png");
+        background-repeat: repeat;
+        background-size: center;
+        background-position: center;
+    
+        opacity: .30;
+        filter: saturate(1.15) contrast(1.08);
+    }    
+        .cabecera .navegacion,
+    .cabecera .portada {
+      position: relative;
+      z-index: 1;
+    }
+ </style>
 </head>
 
 <body>
   <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
 
   <header class="cabecera">
+    <div class="patron-portada" aria-hidden="true"></div>
+
     <nav class="navegacion" aria-label="Navegación principal">
       <a class="marca" href="index.html" aria-label="Volver al inicio de Juegos Interactivos Accesibles">
         <span class="marca-icono" aria-hidden="true">JIA</span>
