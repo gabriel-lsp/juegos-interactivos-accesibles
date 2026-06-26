@@ -1,0 +1,20 @@
+[
+  {
+    "id": "adivina-la-sena",
+    "titulo": "Adivina la seña",
+    "estado": "disponible",
+    "tipo": "juego interactivo",
+    "categoria": "Lengua de Señas Peruana",
+    "descripcion": "Actividad para observar una seña y seleccionar la palabra correcta entre alternativas.",
+    "ruta": "juegos/adivina-la-sena/"
+  },
+  {
+    "id": "adivina-el-signo-braille",
+    "titulo": "Adivina el signo Braille",
+    "estado": "en construccion",
+    "tipo": "juego interactivo",
+    "categoria": "Sistema Braille",
+    "descripcion": "Actividad proyectada para observar un signo Braille y seleccionar la letra, numero o simbolo correspondiente.",
+    "ruta": "juegos/adivina-el-signo-braille/"
+  }
+]
