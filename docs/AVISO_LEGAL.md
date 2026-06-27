@@ -1,8 +1,8 @@
 # Aviso legal
 
-## Juegos Interactivos Accesibles
+## Juegos Interactivos Accesibles - JIA
 
-Juegos Interactivos Accesibles es una plataforma educativa digital de apoyo, desarrollada para presentar actividades lúdicas accesibles orientadas al aprendizaje, la participación y la inclusión educativa.
+Juegos Interactivos Accesibles - JIA forma parte del Ecosistema Virtual Accesible, EVA. Es una plataforma educativa digital de apoyo, desarrollada por el Psicólogo Gabriel Berrospi para presentar actividades lúdicas accesibles orientadas al aprendizaje, la participación y la inclusión educativa.
 
 El contenido se presenta con fines educativos, pedagógicos, accesibles, inclusivos y no comerciales.
 
@@ -20,15 +20,13 @@ La plataforma puede servir como recurso complementario dentro de sesiones educat
 
 ## Contenido publicado
 
-El proyecto puede incluir actividades propias, recursos visuales, imágenes, sonidos, íconos, materiales institucionales o elementos de terceros.
-
-Cada contenido conserva la autoría o titularidad que le corresponda según su origen.
+El proyecto puede incluir actividades propias, recursos visuales, imágenes, sonidos, íconos o elementos de terceros. Cada contenido conserva la autoría o titularidad que le corresponda según su origen.
 
 La inclusión de un contenido externo en la plataforma no implica apropiación de autoría por parte del desarrollador digital.
 
 ## Autoría del desarrollo digital
 
-La organización, adaptación digital, estructura de consulta, código, diseño funcional, textos propios, lógica de funcionamiento, presentación web y sistematización pedagógica corresponden al desarrollo realizado por Gabriel Berrospi.
+La organización, adaptación digital, estructura de consulta, código, diseño funcional, textos propios, lógica de funcionamiento, presentación web y sistematización pedagógica corresponden al desarrollo realizado por el Psicólogo Gabriel Berrospi.
 
 La autoría del proyecto se refiere a la plataforma digital, su estructura, programación, organización, presentación, adaptación educativa y actividades propias desarrolladas para el recurso.
 
@@ -36,19 +34,18 @@ La autoría del proyecto se refiere a la plataforma digital, su estructura, prog
 
 El proyecto se publica con finalidad educativa y no comercial.
 
-No se autoriza su venta, monetización, sublicencia, apropiación institucional o presentación como obra propia de terceros sin autorización expresa del autor.
+No se autoriza su venta, monetización, sublicencia, apropiación o presentación como obra propia de terceros sin autorización expresa del autor.
 
-## Apoyo institucional
+## Identidad EVA
 
-El CREBE "Señor de los Milagros" - Ucayali puede ser reconocido como apoyo institucional del proyecto, en el marco de acciones vinculadas a la accesibilidad, inclusión educativa y fortalecimiento de recursos pedagógicos.
-
-Este apoyo no implica cesión automática de autoría ni transferencia de derechos sobre el desarrollo digital realizado por Gabriel Berrospi.
+La versión personal de EVA debe mantenerse diferenciada de cualquier entidad externa. No deben incorporarse logos, nombres, documentos, fotografías, materiales internos o signos distintivos de terceros sin autorización correspondiente.
 
 ## Responsabilidad de uso
 
-El uso de Juegos Interactivos Accesibles debe realizarse respetando su finalidad educativa, los créditos de autoría, las fuentes utilizadas y las condiciones de uso establecidas en este repositorio.
+El uso de Juegos Interactivos Accesibles - JIA debe realizarse respetando su finalidad educativa, los créditos de autoría, las fuentes utilizadas y las condiciones de uso establecidas en este repositorio.
 
-Cuando se utilicen materiales externos o institucionales, debe conservarse la referencia de origen y evitar su modificación fuera de contexto.
+Cuando se utilicen materiales externos, debe conservarse la referencia de origen y evitar su modificación fuera de contexto.
 
-Autor del desarrollo digital: Gabriel Berrospi  
+Autor y desarrollador: Psicólogo Gabriel Berrospi  
+Proyecto mayor: Ecosistema Virtual Accesible, EVA  
 Año: 2026
