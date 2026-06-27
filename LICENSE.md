@@ -1,34 +1,28 @@
 # Licencia de uso educativo no comercial
 
-## Juegos Interactivos Accesibles
+## Juegos Interactivos Accesibles - JIA
 
-© 2026 Gabriel Berrospi. Todos los derechos reservados.
+© 2026 Psicólogo Gabriel Berrospi. Todos los derechos reservados.
 
-Autor del desarrollo digital: Gabriel Berrospi  
-Proyecto: Juegos Interactivos Accesibles  
+Autor y desarrollador: Psicólogo Gabriel Berrospi  
+Proyecto mayor: Ecosistema Virtual Accesible, EVA  
+Módulo: Juegos Interactivos Accesibles - JIA  
 Finalidad: educativa, pedagógica, accesible, inclusiva y no comercial  
 Año de creación: 2026
 
 ## 1. Titularidad del proyecto
 
-Juegos Interactivos Accesibles es una iniciativa desarrollada y organizada por Gabriel Berrospi como plataforma educativa digital para la presentación de actividades lúdicas accesibles orientadas al aprendizaje, la participación y la inclusión educativa.
+Juegos Interactivos Accesibles - JIA forma parte del Ecosistema Virtual Accesible, EVA. Es una iniciativa desarrollada y organizada por el Psicólogo Gabriel Berrospi como plataforma educativa digital para la presentación de actividades lúdicas accesibles orientadas al aprendizaje, la participación y la inclusión educativa.
 
-La estructura digital del proyecto, su organización, diseño funcional, programación, navegación, presentación web, textos propios, lógica de funcionamiento, actividades propias y sistematización pedagógica forman parte de una obra protegida por derecho de autor.
+La estructura digital del proyecto, su organización, diseño funcional, programación, navegación, presentación web, textos propios, lógica de funcionamiento, actividades propias, documentación y sistematización pedagógica forman parte de una obra protegida por derecho de autor.
 
-Esta licencia no atribuye a Gabriel Berrospi la autoría de recursos externos, imágenes, sonidos, íconos, tipografías, documentos institucionales o materiales de terceros que puedan incorporarse al proyecto. Dichos contenidos conservan los derechos de sus respectivos titulares.
+Esta licencia no atribuye al autor la titularidad de recursos externos, imágenes, sonidos, íconos, tipografías, documentos, materiales o contenidos de terceros que puedan incorporarse o enlazarse en el proyecto. Dichos contenidos conservan los derechos de sus respectivos titulares.
 
 ## 2. Uso permitido
 
-Se permite el uso del proyecto con fines educativos, pedagógicos, formativos, institucionales, familiares, comunitarios, de sensibilización y de accesibilidad, siempre que no exista finalidad comercial directa o indirecta.
+Se permite el uso del proyecto con fines educativos, pedagógicos, formativos, familiares, comunitarios, de sensibilización y de accesibilidad, siempre que no exista finalidad comercial directa o indirecta.
 
-Se permite:
-
-- Consultar la plataforma.
-- Compartir el enlace oficial del proyecto.
-- Utilizar los juegos como recurso educativo de apoyo.
-- Emplear las actividades en sesiones pedagógicas, talleres, capacitaciones u orientaciones familiares.
-- Citar el proyecto en documentos, informes, investigaciones o materiales educativos.
-- Usar el recurso para fortalecer la atención, memoria, asociación, comprensión, participación y aprendizaje de los estudiantes.
+Se permite consultar la plataforma, compartir el enlace oficial del proyecto, utilizar los juegos como recurso educativo de apoyo, emplear las actividades en sesiones pedagógicas, talleres, capacitaciones u orientaciones familiares, citar el proyecto en documentos o materiales educativos, y usar el recurso para fortalecer la atención, memoria, asociación, comprensión, participación y aprendizaje de los estudiantes.
 
 Todo uso debe conservar el reconocimiento de autoría correspondiente.
 
@@ -36,7 +30,7 @@ Todo uso debe conservar el reconocimiento de autoría correspondiente.
 
 Toda referencia, uso, adaptación autorizada o difusión del proyecto deberá reconocer la autoría de la siguiente manera:
 
-Juegos Interactivos Accesibles, desarrollado y organizado por Gabriel Berrospi, 2026.
+Juegos Interactivos Accesibles - JIA, módulo del Ecosistema Virtual Accesible, EVA, desarrollado y organizado por el Psicólogo Gabriel Berrospi, 2026.
 
 No se permite eliminar, ocultar o modificar los créditos de autoría incluidos en la página, el repositorio o los materiales derivados del proyecto.
 
@@ -54,11 +48,11 @@ Cualquier adaptación, mejora, ampliación, integración en otra plataforma, cam
 
 ## 6. Contenido educativo y recursos externos
 
-Los recursos externos, imágenes, sonidos, íconos, tipografías, documentos, materiales institucionales o contenidos de terceros que puedan incorporarse al proyecto conservan los derechos de sus respectivos titulares.
+Los recursos externos, imágenes, sonidos, íconos, tipografías, documentos, materiales o contenidos de terceros que puedan incorporarse al proyecto conservan los derechos de sus respectivos titulares.
 
 La publicación de dichos elementos dentro de la plataforma no implica apropiación de autoría por parte del desarrollador digital.
 
-El autor declara titularidad sobre la estructura digital, organización, programación, diseño funcional, textos propios, lógica de funcionamiento, presentación web y sistematización pedagógica del proyecto.
+El autor declara titularidad sobre la estructura digital, organización, programación, diseño funcional, textos propios, lógica de funcionamiento, presentación web, documentación y sistematización pedagógica del proyecto.
 
 ## 7. Prohibición de apropiación
 
@@ -66,15 +60,13 @@ Queda prohibido registrar, publicar, reproducir o presentar este proyecto, total
 
 También queda prohibido eliminar el reconocimiento de autoría o modificar la identidad del proyecto para atribuirlo a una entidad distinta sin autorización expresa del autor.
 
-## 8. Apoyo institucional
+## 8. Identidad EVA
 
-El CREBE "Señor de los Milagros" - Ucayali puede ser reconocido como apoyo institucional del proyecto, cuando corresponda, en el marco de acciones orientadas a la inclusión educativa, accesibilidad y fortalecimiento de recursos pedagógicos.
-
-Este apoyo no implica transferencia de autoría sobre la estructura digital, programación, organización, diseño funcional ni sistematización desarrollada por Gabriel Berrospi.
+La denominación Ecosistema Virtual Accesible, EVA, y la organización modular del proyecto responden a la estructura personal desarrollada por el autor. Cualquier versión externa, adaptada o contextualizada deberá diferenciarse del proyecto original y no podrá incorporar logos, nombres, documentos, imágenes ni signos distintivos de terceros sin autorización correspondiente.
 
 ## 9. Contacto
 
-Para solicitar autorización de uso, adaptación, colaboración institucional, incorporación del proyecto en otros espacios educativos o modificación del proyecto, comunicarse previamente con el autor.
+Para solicitar autorización de uso, adaptación, colaboración, incorporación del proyecto en otros espacios educativos o modificación del proyecto, comunicarse previamente con el autor.
 
-Autor del desarrollo digital: Gabriel Berrospi  
+Autor y desarrollador: Psicólogo Gabriel Berrospi  
 Año: 2026
