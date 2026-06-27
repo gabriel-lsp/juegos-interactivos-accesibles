@@ -1,45 +1,27 @@
 # Autoría del proyecto
 
-## Juegos Interactivos Accesibles
+## Juegos Interactivos Accesibles - JIA
 
-El presente proyecto, denominado "Juegos Interactivos Accesibles", ha sido desarrollado y organizado por Gabriel Berrospi como una plataforma educativa digital orientada a la creación, presentación y uso de actividades lúdicas accesibles para fortalecer la atención, memoria, asociación, comprensión, participación y aprendizaje de los estudiantes.
+Juegos Interactivos Accesibles - JIA forma parte del Ecosistema Virtual Accesible, EVA. Este módulo ha sido desarrollado y organizado por el Psicólogo Gabriel Berrospi como recurso educativo digital orientado a actividades lúdicas accesibles para apoyar la atención, memoria, asociación, comprensión, participación y aprendizaje.
 
 ## Autor del desarrollo digital
 
-Autor: Gabriel Berrospi  
+Autor y desarrollador: Psicólogo Gabriel Berrospi  
+Proyecto mayor: Ecosistema Virtual Accesible, EVA  
+Módulo: Juegos Interactivos Accesibles - JIA  
 Año de creación: 2026  
-Proyecto: Juegos Interactivos Accesibles  
 Finalidad: educativa, pedagógica, accesible, inclusiva y no comercial
-
-## Elementos desarrollados por el autor
-
-Se reconoce como parte del desarrollo propio del autor:
-
-- La estructura general de la plataforma web.
-- La organización de los juegos interactivos.
-- La programación de las actividades digitales.
-- El diseño funcional de cada recurso lúdico.
-- La estructura de navegación.
-- La presentación visual de los juegos.
-- Los textos propios de orientación y uso pedagógico.
-- La adaptación digital para docentes, estudiantes, familias y comunidad educativa.
-- La sistematización pedagógica de las actividades.
-- La organización accesible de los recursos de aprendizaje.
 
 ## Alcance de la autoría
 
-La autoría declarada corresponde al diseño, organización, estructura digital, programación, presentación web, textos propios, lógica de funcionamiento, adaptación educativa y sistematización pedagógica del proyecto.
+La autoría comprende la estructura general de la plataforma, la organización de los juegos interactivos, la programación, el diseño funcional, la navegación, los textos propios, la presentación web, la documentación interna y la sistematización pedagógica del módulo.
 
-Los recursos externos, imágenes, sonidos, íconos, tipografías, materiales institucionales o contenidos elaborados por terceros conservan los derechos de sus respectivos autores o instituciones.
+Los recursos externos, imágenes, sonidos, íconos, tipografías, materiales o contenidos elaborados por terceros conservan los derechos de sus respectivos autores o titulares. Cuando se incorporen materiales externos, estos deberán ser reconocidos en los documentos de fuentes o créditos correspondientes.
 
-Cuando se incorporen materiales externos, estos deberán ser reconocidos en el archivo `FUENTES.md`.
+## Identidad EVA
 
-## Apoyo institucional
-
-El proyecto puede contar con apoyo institucional del CREBE "Señor de los Milagros" - Ucayali, en el marco de acciones orientadas a la accesibilidad, inclusión educativa y fortalecimiento de recursos pedagógicos.
-
-Este apoyo no implica transferencia automática de autoría sobre la estructura digital, programación, organización, diseño funcional, textos propios ni sistematización pedagógica desarrollada por Gabriel Berrospi.
+JIA debe entenderse como un módulo del Ecosistema Virtual Accesible, EVA. Su desarrollo forma parte de una arquitectura personal de recursos educativos digitales accesibles. Cualquier uso, adaptación o difusión debe conservar la referencia al autor y al proyecto mayor, sin presentar el módulo como creación de terceros.
 
 ## Finalidad
 
-Juegos Interactivos Accesibles se publica con finalidad educativa, pedagógica, accesible, inclusiva y no comercial, como recurso de apoyo para docentes, estudiantes, familias, profesionales de educación inclusiva y comunidad educativa.
+Juegos Interactivos Accesibles - JIA se publica con finalidad educativa, pedagógica, accesible, inclusiva y no comercial, como recurso de apoyo para docentes, estudiantes, familias, profesionales de educación inclusiva y comunidad educativa.
