@@ -1,34 +1,28 @@
 # Sustento del proyecto personal
 
-Este documento respalda la naturaleza personal del repositorio Juegos Interactivos Accesibles y su función dentro del ecosistema educativo accesible desarrollado por Gabriel Berrospi.
+Este documento respalda la naturaleza personal del módulo Juegos Interactivos Accesibles - JIA y su función dentro del Ecosistema Virtual Accesible, EVA, desarrollado por el Psicólogo Gabriel Berrospi.
 
 ## Presentación
 
-Juegos Interactivos Accesibles es un repositorio educativo digital orientado a organizar actividades lúdicas e interactivas que apoyen la participación, la práctica guiada y el aprendizaje de estudiantes con diversas necesidades.
+JIA es un repositorio educativo digital orientado a organizar actividades lúdicas e interactivas que apoyen la participación, la práctica guiada y el aprendizaje de estudiantes con diversas necesidades de apoyo.
 
-El proyecto se desarrolla como iniciativa personal, con recursos propios, tiempo de trabajo, organización técnica, redacción de contenidos, adaptación digital, criterios pedagógicos y estructura web definida por su autor.
+El proyecto se desarrolla como iniciativa personal, con recursos propios, organización técnica, redacción de contenidos, adaptación digital, criterios pedagógicos y estructura web definida por su autor.
 
 ## Naturaleza del proyecto
 
-JIA forma parte del ecosistema educativo accesible como módulo especializado en juegos y actividades digitales. Su finalidad no es solo recreativa, sino pedagógica, funcional y accesible.
+JIA forma parte del EVA como módulo especializado en juegos y actividades digitales. Su finalidad no es solo recreativa, sino pedagógica, funcional y accesible.
 
-El repositorio tiene carácter personal, educativo y no comercial. Puede usarse en contextos escolares, familiares o institucionales, siempre que se conserve el reconocimiento de autoría y la finalidad pedagógica.
-
-## Necesidad identificada
-
-Docentes y familias requieren actividades digitales sencillas, visuales y accesibles que permitan reforzar habilidades como atención, memoria, asociación, reconocimiento visual, comunicación, comprensión de consignas y práctica de vocabulario.
-
-Estos recursos suelen estar dispersos o no siempre cuentan con una organización clara. Por ello, el repositorio busca reunir juegos breves, comprensibles y adaptables dentro de una plataforma ordenada.
+El repositorio tiene carácter personal, educativo, inclusivo y no comercial. Puede usarse en contextos escolares, familiares o formativos, siempre que se conserve el reconocimiento de autoría y la finalidad pedagógica.
 
 ## Finalidad y propósito
 
 La finalidad de JIA es ofrecer un espacio digital organizado para reunir juegos y actividades interactivas de apoyo pedagógico.
 
-Su propósito es convertir actividades digitales accesibles en recursos claros y aprovechables para la práctica educativa, sin reemplazar la planificación docente, la evaluación profesional, la intervención especializada ni los ajustes razonables que cada estudiante pueda requerir.
+Su propósito es convertir actividades digitales accesibles en recursos claros y aprovechables para la práctica educativa, sin reemplazar la planificación docente, la evaluación profesional, la intervención especializada ni los apoyos que cada estudiante pueda requerir.
 
 ## Objetivo general
 
-Organizar un repositorio digital de juegos interactivos accesibles que permita desarrollar, clasificar y poner a disposición actividades pedagógicas de apoyo para la inclusión educativa y la atención a la diversidad.
+Organizar un repositorio digital de juegos interactivos accesibles que permita desarrollar, clasificar y poner a disposición actividades pedagógicas de apoyo para la inclusión educativa y la atención a la diversidad dentro del Ecosistema Virtual Accesible, EVA.
 
 ## Objetivos específicos
 
@@ -48,7 +42,7 @@ Cada juego puede contar con su propia carpeta, archivos HTML, CSS, JavaScript, d
 
 Los beneficiarios directos son estudiantes, docentes, familias y profesionales de apoyo que requieren actividades digitales accesibles para fortalecer experiencias de aprendizaje.
 
-El repositorio también puede beneficiar a instituciones educativas y comunidad educativa interesada en recursos interactivos para la inclusión, la accesibilidad y la atención a la diversidad.
+El repositorio también puede beneficiar a instituciones educativas, organizaciones y comunidad educativa interesada en recursos interactivos para la inclusión, la accesibilidad y la atención a la diversidad.
 
 ## Aspectos técnicos
 
@@ -58,9 +52,9 @@ La carpeta `juegos` contiene las actividades interactivas. La carpeta `datos` al
 
 ## Autoría y reconocimiento
 
-El diseño, la organización, la estructura digital, los criterios pedagógicos, la documentación de respaldo, la adaptación web y la disposición de los juegos corresponden al trabajo personal de Gabriel Berrospi.
+El diseño, la organización, la estructura digital, los criterios pedagógicos, la documentación de respaldo, la adaptación web y la disposición de los juegos corresponden al trabajo personal del Psicólogo Gabriel Berrospi como autor y desarrollador del EVA.
 
-Cuando el repositorio sea utilizado dentro de acciones educativas del CREBE "Señor de los Milagros" - Ucayali u otra institución, debe mantenerse el reconocimiento de autoría y la referencia al proyecto.
+Cualquier uso, adaptación o difusión del repositorio debe mantener el reconocimiento de autoría y la referencia al proyecto mayor: Ecosistema Virtual Accesible, EVA.
 
 ## Recursos externos
 
@@ -74,4 +68,4 @@ Se recomienda revisar periódicamente si los juegos son comprensibles, funcional
 
 ## Cierre
 
-Juegos Interactivos Accesibles constituye un proyecto personal de organización tecnológica aplicada a la educación inclusiva. Su valor se encuentra en transformar la necesidad de actividades digitales accesibles en una solución ordenada, consultable y orientada a apoyar la práctica docente, el acompañamiento familiar y la participación de los estudiantes.
+Juegos Interactivos Accesibles - JIA constituye un proyecto personal de organización tecnológica aplicada a la educación inclusiva dentro del Ecosistema Virtual Accesible, EVA.
